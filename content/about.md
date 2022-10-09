@@ -10,12 +10,13 @@ Myself Neel Thomas, currently working as freelance Site Reliability Engineering 
 
 I've worked for and assisted the organisations listed below in growing at scale over the last few years.
 
-* https://bobcares.com/
-* https://www.olacabs.com/
-* https://www.careem.com/ (An Uber Company)
-* https://www.scaleway.com/en/
-* https://zolve.com/
-* https://arcab.ae/
-* https://dview.io/
+* [Bobcares](https://bobcares.com/)
+* [Ola Cabs](https://www.olacabs.com/)
+* [Careem - Uber](https://www.careem.com/)
+* [Scaleway](https://www.scaleway.com/en/)
+* [Zolve](https://zolve.com/)
+* [Arcab](https://arcab.ae/)
+* [Dview](https://dview.io)
 
-Along with assisting these businesses, I also provide assistance to a number of SaaS portfolio companies associated with https://together.fund/
+
+Along with assisting these businesses, I also provide assistance to a number of SaaS portfolio companies associated with [Together Fund](https://together.fund/)
