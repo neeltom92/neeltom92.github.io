@@ -6,7 +6,7 @@ aliases = ["about-us", "about-hugo", "contact"]
 author = "Neel Thomas"
 +++
 
-Neel Thomas here; I'm a DevOps consultant. I began working as a Linux System Administrator in 2015, then in 2017 I moved over to working DevOps engineer.
+Neel Thomas here; I'm a DevOps consultant based in Kerala, India. I began working as a Linux System Administrator in 2015, then in 2017 I switched to working as DevOps engineer.
 
 Over the past few years, I've worked for and helped organisations listed below achieve hyper scaled growth.
 
