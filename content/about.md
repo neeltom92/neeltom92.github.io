@@ -6,17 +6,20 @@ aliases = ["about-us", "about-hugo", "contact"]
 author = "Neel Thomas"
 +++
 
-Myself Neel Thomas, currently working as freelance Site Reliability Engineering consultant. I began my work as a Linux system administrator in 2015 before switching to SRE.
+Neel Thomas here; I'm a DevOps consultant. I began working as a Linux System Administrator in 2015, then in 2017 I moved over to working as DevOps.
 
-I've worked for and assisted the organisations listed below in growing at scale over the last few years.
+Over the past few years, I've worked for and helped the organisations on the following list achieve hyper scaled growth.
 
 * [Bobcares](https://bobcares.com/)
 * [Ola Cabs](https://www.olacabs.com/)
 * [Careem - Uber](https://www.careem.com/)
 * [Scaleway](https://www.scaleway.com/en/)
-* [Zolve](https://zolve.com/)
-* [Arcab](https://arcab.ae/)
-* [Dview](https://dview.io)
+
+Starting from scratch I have built the entire Infrastructure and implemented DevOps/SRE practise's in below companies.
+
+* [Zolve](https://zolve.com/) : Neo bank valued at $210 Million based out of US and India.
+* [Arcab](https://arcab.ae/)  : Mobility company based in Dubai.
+* [Dview](https://dview.io)   : Data Plaform company considered as an alternative to Fivetran/HevoData.
 
 
-Along with assisting these businesses, I also provide assistance to a number of SaaS portfolio companies associated with [Together Fund](https://together.fund/)
+I have also helped a number of SaaS portfolio companies affiliated with [Together Fund](https://together.fund/) in addition to above enterprises.
