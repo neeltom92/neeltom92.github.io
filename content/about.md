@@ -6,7 +6,7 @@ aliases = ["about-us", "about-hugo", "contact"]
 author = "Neel Thomas"
 +++
 
-Neel Thomas here; I'm a DevOps consultant based in India. I began my career as a Linux System Administrator in 2015 with [Bobcares](https://bobcares.com/), a pioneer in webhosting and technical support located at Kochi, India, I switched to working as DevOps engineer in 2017.
+Hello and welcome to my portfolio website. My name is Neel Thomas and I am an experienced DevOps consultant based in Arizona, USA. With over 5 years of experience in the industry, I have had the privilege of working with renowned companies, starting my carrer with [Bobcares](https://bobcares.com/), a pioneer in web hosting and server support located in Kochi, India.
 
 Over the past few years, I've worked for and helped organisations listed below achieve hyper scaled growth.
 
