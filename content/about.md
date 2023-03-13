@@ -22,3 +22,5 @@ Also, starting from scratch I have built the entire Infrastructure and implement
 
 
 I have also helped a number of SaaS portfolio companies affiliated with [Together Fund](https://together.fund/) in addition to above enterprises.
+
+Thank you for visiting my portfolio website. Please feel free to browse through my work and do not hesitate to contact me with any questions or inquiries.
