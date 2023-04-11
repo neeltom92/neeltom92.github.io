@@ -20,6 +20,6 @@ Also, starting from scratch I have built the entire Infrastructure and implement
 * [Arcab](https://arcab.ae/)  : Mobility company based in Dubai.
 * [Dview](https://dview.io)   : Data Platform company considered as an alternative to Fivetran/HevoData.
 
-I have also helped a number of SaaS portfolio companies affiliated with Together Fund in addition to the above enterprises.
+I have also helped a number of SaaS portfolio companies affiliated with [Together Fund](https://together.fund/) in addition to the above enterprises.
 
 Thank you for visiting my portfolio website. Please feel free to browse through my work and do not hesitate to contact me with any questions or inquiries.
