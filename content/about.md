@@ -6,10 +6,11 @@ aliases = ["about-us", "about-hugo", "contact"]
 author = "Neel Thomas"
 +++
 
-Hello and welcome to my portfolio website. My name is Neel Thomas, I am an experienced DevOps consultant based in Arizona, USA. With over 5 years of experience in the industry, I had the privilege of working with renowned companies based in India, UAE and France, starting my career with [Bobcares](https://bobcares.com/), a pioneer in web hosting and server support located in Kochi, India.
+Hello and welcome to my portfolio website. My name is Neel Thomas, I am an experienced DevOps consultant based in Arizona, USA. With over  a decade of experience in the industry, I had the privilege of working with renowned companies based in India, UAE and France, starting my career with [Bobcares](https://bobcares.com/), a pioneer in web hosting and server support located in Kochi, India.
 
 Over the past few years, I've worked for and helped the organisations listed below achieve hyper-scaled growth.
 
+* [Life360](https://www.life360.com/) : A publicly traded family-safety company with over 60+ million customers worldwide, based in San Mateo, CA, USA.
 * [Ola Cabs](https://www.olacabs.com/) : A mobility startup valued at $6 billion, based in Bangalore India.
 * [Careem - Uber](https://www.careem.com/) : An Uber company, based in Dubai, U.A.E.
 * [Scaleway](https://www.scaleway.com/en/) : 2nd Largest Cloud provider in Europe, based in Paris, France
