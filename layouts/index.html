@@ -1,0 +1,222 @@
+{{ define "title" }}Neel Thomas — Senior DevOps / SRE / AIOps Engineer{{ end }}
+
+{{ define "content" }}
+{{ $resume := "resume.pdf" | relURL }}
+<div class="nt-home">
+
+  <!-- ===================== HERO ===================== -->
+  <header class="nt-hero">
+    <div class="nt-wrap">
+      <p class="nt-hero__status nt-reveal" style="animation-delay:.05s">
+        <span class="nt-dot"></span> available for senior SRE / platform / AI-infra roles · Mesa, AZ · remote
+      </p>
+      <h1 class="nt-hero__name nt-reveal" style="animation-delay:.12s">Neel Thomas<span class="nt-cursor">_</span></h1>
+      <p class="nt-hero__role nt-reveal" style="animation-delay:.2s">
+        <span>$</span> devops · sre · <span>aiops</span> engineer
+      </p>
+      <p class="nt-hero__sub nt-reveal" style="animation-delay:.28s">
+        8+ years building scalable, reliable cloud-native infrastructure and internal
+        platforms — supporting 100M+ users. Now focused on AI infrastructure, AIOps,
+        and MCP platforms that put LLMs to work in production SRE workflows.
+      </p>
+      <nav class="nt-cta nt-reveal" style="animation-delay:.36s" aria-label="primary links">
+        <a class="nt-btn nt-btn--primary" href="{{ $resume }}" target="_blank" rel="noopener">↳ View résumé (PDF)</a>
+        <a class="nt-btn" href="https://github.com/neeltom92" target="_blank" rel="noopener">GitHub</a>
+        <a class="nt-btn" href="https://www.linkedin.com/in/neel-thomas-646a27131/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="nt-btn" href="mailto:neeltom92@gmail.com">Email</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== METRICS ===================== -->
+  <section class="nt-metrics" aria-label="impact at a glance">
+    <div class="nt-metric"><div class="nt-metric__num">8<span>+</span></div><div class="nt-metric__label">years in DevOps / SRE</div></div>
+    <div class="nt-metric"><div class="nt-metric__num">100M<span>+</span></div><div class="nt-metric__label">users supported</div></div>
+    <div class="nt-metric"><div class="nt-metric__num">6TB<span>+</span></div><div class="nt-metric__label">logs / day pipelined</div></div>
+    <div class="nt-metric"><div class="nt-metric__num">125<span>+</span></div><div class="nt-metric__label">k8s services observed</div></div>
+  </section>
+
+  <!-- ===================== AI-CORE WORK ===================== -->
+  <section class="nt-section" id="work">
+    <div class="nt-wrap">
+      <p class="nt-eyebrow">Selected work · AI-Core / AIOps</p>
+      <h2 class="nt-section__title">Putting LLMs to work in production SRE</h2>
+      <p class="nt-section__intro">
+        Tools I built at Life360 to drive AI adoption across infrastructure — two
+        open-sourced as MCP servers with growing community traction.
+      </p>
+
+      <div class="nt-cards">
+        <article class="nt-card">
+          <a class="nt-card__link" href="https://github.com/neeltom92" target="_blank" rel="noopener" aria-label="SRE Copilot on GitHub">↗</a>
+          <span class="nt-card__tag nt-card__tag--oss">open source · MCP server</span>
+          <h3>SRE Copilot</h3>
+          <p>AI observability chat assistant for root-cause analysis. Natural-language
+            querying of metrics, logs and traces across Datadog APM, Kubernetes and PagerDuty.</p>
+          <div class="nt-card__stack">
+            <span class="nt-chip">Claude Sonnet</span><span class="nt-chip">LangGraph</span>
+            <span class="nt-chip">Datadog</span><span class="nt-chip">Kubernetes</span><span class="nt-chip">MCP</span>
+          </div>
+        </article>
+
+        <article class="nt-card">
+          <a class="nt-card__link" href="https://github.com/neeltom92" target="_blank" rel="noopener" aria-label="Eagle-Eye on GitHub">↗</a>
+          <span class="nt-card__tag nt-card__tag--oss">open source · MCP server</span>
+          <h3>Eagle-Eye</h3>
+          <p>Single-pane-of-glass for on-call engineers — unifies metrics, logs, alerts
+            and debugging context so responders stop tab-hopping during incidents.</p>
+          <div class="nt-card__stack">
+            <span class="nt-chip">Observability</span><span class="nt-chip">MCP</span>
+            <span class="nt-chip">Incident response</span><span class="nt-chip">On-call</span>
+          </div>
+        </article>
+
+        <article class="nt-card">
+          <span class="nt-card__tag">capacity planning</span>
+          <h3>Forecasting MCP</h3>
+          <p>Capacity-planning MCP over Datadog time-series + Facebook Prophet to forecast
+            traffic spikes and proactively size CPU, memory and HPA for peak events.</p>
+          <div class="nt-card__stack">
+            <span class="nt-chip">Prophet</span><span class="nt-chip">Time-series</span>
+            <span class="nt-chip">HPA</span><span class="nt-chip">Forecasting</span>
+          </div>
+        </article>
+
+        <article class="nt-card">
+          <span class="nt-card__tag">internal platform</span>
+          <h3>SLICK — Streamlit One-Click</h3>
+          <p>Vibe-coding platform on top of the existing GitOps stack for one-click
+            deploys of AI apps. Adopted by 10+ internal teams; biggest win in Ads &amp; Marketing.</p>
+          <div class="nt-card__stack">
+            <span class="nt-chip">Streamlit</span><span class="nt-chip">GitOps</span>
+            <span class="nt-chip">Databricks MCP</span><span class="nt-chip">Function calling</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXPERIENCE ===================== -->
+  <section class="nt-section" id="experience">
+    <div class="nt-wrap">
+      <p class="nt-eyebrow">Career log</p>
+      <h2 class="nt-section__title">Experience</h2>
+
+      <div class="nt-timeline">
+        <div class="nt-job">
+          <div class="nt-job__head">
+            <span class="nt-job__role">Sr Software Engineer, AI-Core / AIOps · <span class="nt-job__co">Life360</span></span>
+            <span class="nt-job__date">Aug 2025 — Present</span>
+          </div>
+          <p class="nt-job__desc">Driving AI adoption across infrastructure. Built SRE Copilot &amp; Eagle-Eye, a forecasting MCP, and the SLICK platform; provisioned a dedicated EKS cluster for MCP workloads.</p>
+        </div>
+        <div class="nt-job">
+          <div class="nt-job__head">
+            <span class="nt-job__role">Sr Software Engineer, Cloud Operations · <span class="nt-job__co">Life360</span></span>
+            <span class="nt-job__date">Jun 2023 — Jul 2025</span>
+          </div>
+          <p class="nt-job__desc">Owned observability for 125+ k8s services supporting 100M+ users. Replaced logging agents with Vector (6TB+/day), ran Prometheus on EKS, led an OpenTelemetry PoC and eBPF service mapping.</p>
+        </div>
+        <div class="nt-job">
+          <div class="nt-job__head">
+            <span class="nt-job__role">DevOps Engineer · <span class="nt-job__co">Dview.io</span></span>
+            <span class="nt-job__date">Nov 2022 — May 2023</span>
+          </div>
+          <p class="nt-job__desc">Founding engineer at a pre-seed data platform. Built full AWS infra with Terraform/Terragrunt/Atlantis, multi-region EKS, ArgoCD GitOps and SLI/SLO frameworks.</p>
+        </div>
+        <div class="nt-job">
+          <div class="nt-job__head">
+            <span class="nt-job__role">DevOps Consultant · <span class="nt-job__co">Freelance</span></span>
+            <span class="nt-job__date">May 2022 — Nov 2022</span>
+          </div>
+          <p class="nt-job__desc">End-to-end cloud &amp; Kubernetes infrastructure for startups; DevOps advisory to 5+ SaaS portfolio companies under Together Fund.</p>
+        </div>
+        <div class="nt-job">
+          <div class="nt-job__head">
+            <span class="nt-job__role">Site Reliability Engineer · <span class="nt-job__co">Zolve</span></span>
+            <span class="nt-job__date">Apr 2021 — May 2022</span>
+          </div>
+          <p class="nt-job__desc">Built the entire cloud + Kubernetes platform for a $210M neobank — 20+ microservices on multi-region EKS, CI/CD, GitOps and Prometheus/Grafana observability.</p>
+        </div>
+        <div class="nt-job">
+          <div class="nt-job__head">
+            <span class="nt-job__role">Site Reliability Engineer · <span class="nt-job__co">Careem (an Uber company)</span></span>
+            <span class="nt-job__date">Sep 2019 — Sep 2020</span>
+          </div>
+          <p class="nt-job__desc">Delivered AWS cost optimizations saving $336K/yr for Careem Pay. Migrated production from Elastic Beanstalk to EKS; 24/7 on-call.</p>
+        </div>
+        <div class="nt-job">
+          <div class="nt-job__head">
+            <span class="nt-job__role">DevOps Engineer · <span class="nt-job__co">Ola Cabs</span></span>
+            <span class="nt-job__date">Oct 2017 — Aug 2019</span>
+          </div>
+          <p class="nt-job__desc">Ran large-scale CI/CD on Jenkins + Mesos; migrated payment workloads AWS→Azure for ~20% infra savings.</p>
+        </div>
+        <div class="nt-job">
+          <div class="nt-job__head">
+            <span class="nt-job__role">Linux System Engineer · <span class="nt-job__co">Poornam Info Vision</span></span>
+            <span class="nt-job__date">May 2015 — Sep 2017</span>
+          </div>
+          <p class="nt-job__desc">Linux administration for 25+ global clients; handled security incidents — spam, spoofing and intrusion mitigation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS ===================== -->
+  <section class="nt-section" id="skills">
+    <div class="nt-wrap">
+      <p class="nt-eyebrow">Toolchain</p>
+      <h2 class="nt-section__title">Skills</h2>
+      <div class="nt-skills">
+        <div class="nt-skillgroup">
+          <h4>Languages &amp; IaC</h4>
+          <div class="nt-card__stack">
+            <span class="nt-chip">Go</span><span class="nt-chip">Bash</span><span class="nt-chip">Terraform</span>
+            <span class="nt-chip">Terragrunt</span><span class="nt-chip">CloudFormation</span>
+          </div>
+        </div>
+        <div class="nt-skillgroup">
+          <h4>Cloud &amp; Kubernetes</h4>
+          <div class="nt-card__stack">
+            <span class="nt-chip">AWS</span><span class="nt-chip">Azure</span><span class="nt-chip">EKS</span>
+            <span class="nt-chip">ArgoCD</span><span class="nt-chip">Argo Rollouts</span><span class="nt-chip">KEDA</span>
+            <span class="nt-chip">Kyverno</span><span class="nt-chip">Istio</span><span class="nt-chip">Karpenter</span>
+          </div>
+        </div>
+        <div class="nt-skillgroup">
+          <h4>Observability</h4>
+          <div class="nt-card__stack">
+            <span class="nt-chip">Prometheus</span><span class="nt-chip">Grafana</span><span class="nt-chip">Datadog</span>
+            <span class="nt-chip">New Relic</span><span class="nt-chip">Vector</span><span class="nt-chip">OpenTelemetry</span>
+            <span class="nt-chip">eBPF</span>
+          </div>
+        </div>
+        <div class="nt-skillgroup">
+          <h4>AI Infrastructure</h4>
+          <div class="nt-card__stack">
+            <span class="nt-chip">MCP</span><span class="nt-chip">Claude</span><span class="nt-chip">LangGraph</span>
+            <span class="nt-chip">RAG</span><span class="nt-chip">Prophet</span><span class="nt-chip">Langfuse</span>
+            <span class="nt-chip">Streamlit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CLOSING ===================== -->
+  <section class="nt-closing">
+    <div class="nt-wrap">
+      <p class="nt-eyebrow" style="justify-content:center">Let's talk</p>
+      <h2>Building reliable systems —<br>now with AI in the loop.</h2>
+      <p>Open to senior SRE, platform and AI-infrastructure roles. The fastest way to reach me is email.</p>
+      <nav class="nt-cta" style="justify-content:center" aria-label="contact links">
+        <a class="nt-btn nt-btn--primary" href="mailto:neeltom92@gmail.com">neeltom92@gmail.com</a>
+        <a class="nt-btn" href="{{ $resume }}" target="_blank" rel="noopener">Résumé (PDF)</a>
+        <a class="nt-btn" href="https://github.com/neeltom92" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </section>
+
+</div>
+{{ end }}
