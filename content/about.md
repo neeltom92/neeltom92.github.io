@@ -1,6 +1,6 @@
 +++
 title = "About"
-description = "Neel Thomas — Senior DevOps / SRE / AIOps engineer based in Arizona, USA. 8+ years across Kubernetes, observability and AI infrastructure."
+description = "Neel Thomas — Senior DevOps / SRE / AIOps engineer based in Arizona, USA. 10+ years across Kubernetes, observability and AI infrastructure."
 date = "2019-02-28"
 aliases = ["about-us", "about-hugo", "contact"]
 author = "Neel Thomas"

@@ -14,7 +14,7 @@ enableEmoji = true
 [params]
 author = "Neel Thomas"
 # license = '<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA-4.0</a>'
-description = "Neel Thomas — Senior DevOps / SRE / AIOps Engineer with 8+ years building scalable, reliable cloud-native infrastructure. Kubernetes, observability, and AI infrastructure (MCP, LLM agents, AIOps)."
+description = "Neel Thomas — Senior DevOps / SRE / AIOps Engineer with 10+ years building scalable, reliable cloud-native infrastructure. Kubernetes, observability, and AI infrastructure (MCP, LLM agents, AIOps)."
 keywords = "Neel Thomas, DevOps Engineer, Site Reliability Engineer, SRE, AIOps, Platform Engineer, Kubernetes, AWS, EKS, Observability, Terraform, MCP, AI Infrastructure, LLM agents, Datadog, Prometheus, OpenTelemetry, Arizona, remote"
 info = [
   "Senior DevOps · SRE · AIOps Engineer",
