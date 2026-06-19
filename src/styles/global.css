@@ -175,7 +175,7 @@ body > * { position: relative; z-index: 2; }
 
 .hero__name {
   font-weight: 800; letter-spacing: -0.04em;
-  font-size: clamp(3.4rem, 13vw, 9.5rem); line-height: 0.88;
+  font-size: clamp(2.5rem, 7vw, 5rem); line-height: 0.92;
   text-transform: uppercase;
 }
 .hero__name .ln { display: block; }
