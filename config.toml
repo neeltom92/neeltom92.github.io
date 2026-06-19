@@ -123,7 +123,7 @@ url = "https://twitter.com/NEELTHOMAS11"
 name = "LinkedIn"
 icon = "fa fa-2x fa-linkedin"
 weight = 3
-url = "https://www.linkedin.com/in/neel-thomas-646a27131/"
+url = "https://www.linkedin.com/in/neel-thomas-thelly-646a27131/"
 
 [[params.social]]
 name = "Medium"
