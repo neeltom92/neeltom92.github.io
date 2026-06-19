@@ -3,26 +3,14 @@
 {{ define "content" }}
 {{ $resume := "resume.pdf" | relURL }}
 <div class="nt-home">
-  <section class="nt-section" style="border-top:none; padding-bottom:1.4rem">
-    <div class="nt-wrap nt-resume__bar">
-      <div>
-        <p class="nt-eyebrow" style="margin:0 0 .45rem">Document · résumé</p>
-        <h1 class="nt-section__title" style="margin:0">Neel Thomas Thelly — résumé</h1>
-      </div>
-      <nav class="nt-cta" aria-label="résumé actions">
+  <section class="nt-section" style="border-top:none; padding:clamp(1.5rem,4vw,2.5rem) 0 3rem">
+    <div class="nt-wrap">
+      <nav class="nt-cta" aria-label="résumé actions" style="margin-bottom:1.2rem">
         <a class="nt-btn nt-btn--primary" href="{{ $resume }}" download="Neel_Thomas_Thelly_Resume.pdf">↓ Download PDF</a>
         <a class="nt-btn" href="{{ $resume }}" target="_blank" rel="noopener">Open raw ↗</a>
       </nav>
+      <iframe class="nt-resume__frame" src="{{ $resume }}#view=FitH" title="Résumé of Neel Thomas Thelly" loading="lazy"></iframe>
     </div>
   </section>
-
-  <div class="nt-wrap" style="padding-bottom:3rem">
-    <iframe class="nt-resume__frame" src="{{ $resume }}#view=FitH" title="Résumé of Neel Thomas Thelly" loading="lazy"></iframe>
-    <p class="nt-resume__fallback">
-      Can't see the résumé above?
-      <a href="{{ $resume }}" target="_blank" rel="noopener">Open it in a new tab</a> or
-      <a href="{{ $resume }}" download="Neel_Thomas_Thelly_Resume.pdf">download the PDF</a>.
-    </p>
-  </div>
 </div>
 {{ end }}
