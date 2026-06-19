@@ -97,7 +97,8 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--serif); color: var(--ink); overflow-
 
 // --- Inner content pages (about / projects / contact / posts) -----------------
 .content { color: var(--ink); }
-.content .container { max-width: var(--maxw); }
+// centered, comfortable reading column for prose pages (about / projects / posts)
+.content .container { max-width: 48rem; margin-left: auto; margin-right: auto; }
 .content a { border-bottom: 1px solid rgba(31, 157, 99, 0.4); }
 .content a:hover { border-bottom-color: var(--ok); }
 .content ul li { margin: 0.4rem 0; }
@@ -158,9 +159,9 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--serif); color: var(--ink); overflow-
 .nt-hero { padding: clamp(2.5rem, 7vw, 5rem) 0 clamp(2rem, 5vw, 3.5rem); }
 .nt-hero__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
-  gap: clamp(1.5rem, 4vw, 3rem);
-  align-items: end;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.9fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: center;
 }
 @media (max-width: 820px) { .nt-hero__grid { grid-template-columns: 1fr; align-items: start; } }
 
@@ -249,6 +250,20 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--serif); color: var(--ink); overflow-
 
 // --- COMPONENTS (work) cards --------------------------------------------------
 .nt-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+// 5 cards in a 2-col grid leaves a lonely last card — make it a centered
+// full-width feature so the row reads as intentional, not half-empty
+.nt-cards > article:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+.nt-cards > article:last-child:nth-child(odd) .nt-card__status,
+.nt-cards > article:last-child:nth-child(odd) .nt-card__stack { justify-content: center; }
+.nt-cards > article:last-child:nth-child(odd) p { max-width: 60ch; margin-left: auto; margin-right: auto; }
+@media (max-width: 720px) {
+  .nt-cards > article:last-child:nth-child(odd) { text-align: left; }
+  .nt-cards > article:last-child:nth-child(odd) .nt-card__status,
+  .nt-cards > article:last-child:nth-child(odd) .nt-card__stack { justify-content: flex-start; }
+}
 @media (max-width: 720px) { .nt-cards { grid-template-columns: 1fr; } }
 .nt-card {
   position: relative;
@@ -349,6 +364,11 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--serif); color: var(--ink); overflow-
 .nt-closing .nt-cta { justify-content: center; }
 
 // --- CONTACT PAGE -------------------------------------------------------------
+.nt-contact-page {
+  border-top: none;
+  min-height: calc(100vh - 13rem);
+  display: flex; flex-direction: column; justify-content: center;
+}
 .nt-contact {
   display: grid;
   grid-template-columns: 1fr minmax(0, 22rem);
