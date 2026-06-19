@@ -96,17 +96,18 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--serif); color: var(--ink); overflow-
 @media (max-width: 560px) { .nt-foot__meta { margin-left: 0; } }
 
 // --- Inner content pages (about / projects / contact / posts) -----------------
-// theme makes .content a flex row whose direct .container centers as an
-// island (auto margins) and justifies prose — both read "off". Left-align the
-// container so it starts at the page margin like the homepage, and un-justify.
-.content { color: var(--ink); }
+// theme makes .content a flex ROW — its direct children become flex items that
+// shrink to content width and sit at flex-start, so every page hugs the left
+// with dead space on the right. Make .content a plain block so the homepage
+// wrap and the prose container can center themselves with margin:auto.
+.content { color: var(--ink); display: block; }
 .content > .container {
   max-width: var(--maxw);
   width: 100%;
-  margin: 1rem 0;
+  margin: 1rem auto;
   padding-left: var(--pad); padding-right: var(--pad);
 }
-.content .container.page > article { max-width: 62rem; }
+.content .container.page > article { max-width: 62rem; margin-inline: auto; }
 .content article p, .content article li { text-align: left; hyphens: manual; }
 .content a { border-bottom: 1px solid rgba(31, 157, 99, 0.4); }
 .content a:hover { border-bottom-color: var(--ok); }
