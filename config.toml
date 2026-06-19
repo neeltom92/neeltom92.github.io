@@ -153,4 +153,4 @@ url = "contact/"
 [[languages.en.menu.main]]
 name = "Resume"
 weight = 7
-url = "resume.pdf"
+url = "resume/"

@@ -1,0 +1,5 @@
+# Prefer inline display for the résumé PDF (browsers may still honor a
+# user's "always download PDFs" setting — the /resume/ viewer page handles that).
+/resume.pdf
+  Content-Type: application/pdf
+  Content-Disposition: inline

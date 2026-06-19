@@ -2,6 +2,7 @@
 
 {{ define "content" }}
 {{ $resume := "resume.pdf" | relURL }}
+{{ $resumeView := "resume/" | relURL }}
 <div class="nt-home">
   <section class="nt-section" style="border-top:none" id="contact">
     <div class="nt-wrap nt-contact">
@@ -44,9 +45,9 @@
           <span class="nt-channel__v">@NEELTHOMAS11</span>
           <span class="nt-channel__go" aria-hidden="true">↗</span>
         </a>
-        <a class="nt-channel" href="{{ $resume }}" target="_blank" rel="noopener">
+        <a class="nt-channel" href="{{ $resumeView }}">
           <span class="nt-channel__k">Résumé</span>
-          <span class="nt-channel__v">PDF</span>
+          <span class="nt-channel__v">view online</span>
           <span class="nt-channel__go" aria-hidden="true">↗</span>
         </a>
       </div>

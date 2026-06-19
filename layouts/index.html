@@ -2,6 +2,7 @@
 
 {{ define "content" }}
 {{ $resume := "resume.pdf" | relURL }}
+{{ $resumeView := "resume/" | relURL }}
 <div class="nt-home">
 
   <!-- ===================== STATUS BANNER (signature framing) ===================== -->
@@ -29,7 +30,7 @@
           LLMs to work inside production SRE workflows through MCP and AIOps.
         </p>
         <nav class="nt-cta nt-reveal" style="animation-delay:.34s" aria-label="primary links">
-          <a class="nt-btn nt-btn--primary" href="{{ $resume }}" target="_blank" rel="noopener">View résumé</a>
+          <a class="nt-btn nt-btn--primary" href="{{ $resumeView }}">View résumé</a>
           <a class="nt-btn" href="{{ $resume }}" download="Neel_Thomas_Thelly_Resume.pdf">↓ Download PDF</a>
           <a class="nt-btn" href="https://github.com/neeltom92" target="_blank" rel="noopener">GitHub</a>
           <a class="nt-btn" href="https://www.linkedin.com/in/neel-thomas-646a27131/" target="_blank" rel="noopener">LinkedIn</a>
@@ -256,7 +257,7 @@
       <p>Open to senior SRE, platform and AI-infrastructure roles. Email is the fastest way to reach me.</p>
       <nav class="nt-cta" aria-label="contact links">
         <a class="nt-btn nt-btn--primary" href="mailto:neeltom92@gmail.com">neeltom92@gmail.com</a>
-        <a class="nt-btn" href="{{ $resume }}" target="_blank" rel="noopener">View résumé</a>
+        <a class="nt-btn" href="{{ $resumeView }}">View résumé</a>
         <a class="nt-btn" href="{{ $resume }}" download="Neel_Thomas_Thelly_Resume.pdf">↓ Download PDF</a>
         <a class="nt-btn" href="https://github.com/neeltom92" target="_blank" rel="noopener">GitHub</a>
       </nav>
