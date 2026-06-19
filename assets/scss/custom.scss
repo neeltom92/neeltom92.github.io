@@ -19,9 +19,9 @@
   --nt-accent-2:  #f0b429; // amber, used sparingly
   --nt-glow:      0 0 0 1px rgba(58, 215, 154, 0.35), 0 0 28px -8px rgba(58, 215, 154, 0.45);
 
-  --nt-display: "Chivo Mono", ui-monospace, monospace;
-  --nt-body:    "IBM Plex Sans", system-ui, sans-serif;
-  --nt-mono:    "IBM Plex Mono", ui-monospace, monospace;
+  --nt-display: "Times New Roman", Times, Georgia, serif;
+  --nt-body:    "Times New Roman", Times, Georgia, serif;
+  --nt-mono:    "IBM Plex Mono", ui-monospace, monospace; // terminal/code accents only
 
   --nt-maxw: 78rem;
 }
