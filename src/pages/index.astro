@@ -1,0 +1,192 @@
+---
+import Base from "../layouts/Base.astro";
+
+const resume = "/resume.pdf";
+const resumeView = "/resume/";
+
+const projects = [
+  {
+    tag: "open source · MCP server", oss: true, href: "https://github.com/neeltom92",
+    title: "SRE Copilot",
+    desc: "AI observability assistant for root-cause analysis. Ask in plain language and it queries metrics, logs and traces across Datadog APM, Kubernetes and PagerDuty.",
+    stack: ["Claude Sonnet", "LangGraph", "Datadog", "Kubernetes", "MCP"],
+  },
+  {
+    tag: "open source · MCP server · 10+ ★", oss: true, href: "https://github.com/neeltom92",
+    title: "Eagle-Eye",
+    desc: "A single pane of glass for on-call engineers — unifies metrics, logs, alerts and debugging context so responders stop tab-hopping during incidents.",
+    stack: ["Observability", "MCP", "Incident response", "On-call"],
+  },
+  {
+    tag: "open source · observability", oss: true, href: "https://github.com/neeltom92/claude-code-observability",
+    title: "Claude Code Observability",
+    desc: "Self-hosted Grafana + OTEL stack that tracks Claude Code CLI cost and token usage — and uniquely captures skill/tool invocation analytics. One <code>make up</code> brings up Prometheus, Grafana, Loki and an OTEL Collector with ready-made dashboards. Local only — no SaaS, no data leaves your machine.",
+    stack: ["Grafana", "OpenTelemetry", "Prometheus", "Loki", "Docker"],
+  },
+  {
+    tag: "capacity planning", oss: false, href: null,
+    title: "Forecasting MCP",
+    desc: "A capacity-planning MCP over Datadog time-series and Prophet that forecasts traffic spikes and sizes CPU, memory and HPA ahead of peak events.",
+    stack: ["Prophet", "Time-series", "HPA", "Forecasting"],
+  },
+  {
+    tag: "internal platform", oss: false, href: null,
+    title: "SLICK — Streamlit One-Click",
+    desc: "A vibe-coding platform on top of the existing GitOps stack for one-click deploys of AI apps. Adopted by 10+ internal teams; biggest win in Ads & Marketing.",
+    stack: ["Streamlit", "GitOps", "Databricks MCP", "Function calling"],
+  },
+];
+
+const roles = [
+  { when: "Aug 2025 — Present", role: "Sr Software Engineer, DevOps", co: "Life360",
+    desc: "Cloud Success team — CI/CD, observability and release pipelines. Built Eagle-Eye (open-sourced MCP server, 10+ stars), a Prophet-based capacity-planning MCP and the SLICK platform; evaluated 30+ AI dev tools and provisioned a dedicated EKS cluster for MCP workloads." },
+  { when: "Jun 2023 — Jul 2025", role: "Sr Software Engineer, Network Operations", co: "Life360",
+    desc: "Owned observability for 125+ Kubernetes services supporting 100M+ users. Replaced logging agents with Vector (6TB+/day), ran Prometheus on EKS, and led an OpenTelemetry PoC and eBPF service mapping." },
+  { when: "Nov 2022 — May 2023", role: "DevOps Engineer", co: "Dview.io",
+    desc: "Founding engineer at a pre-seed data platform. Built full AWS infra with Terraform/Terragrunt/Atlantis, multi-region EKS, ArgoCD GitOps and SLI/SLO frameworks." },
+  { when: "May 2022 — Nov 2022", role: "DevOps Consultant", co: "Freelance",
+    desc: "End-to-end cloud & Kubernetes infrastructure for startups; DevOps advisory to 5+ SaaS portfolio companies under Together Fund." },
+  { when: "Apr 2021 — May 2022", role: "Site Reliability Engineer", co: "Zolve",
+    desc: "Built the entire cloud + Kubernetes platform for a $210M neobank — 20+ microservices on multi-region EKS, CI/CD, GitOps and Prometheus/Grafana observability." },
+  { when: "Sep 2019 — Sep 2020", role: "Site Reliability Engineer", co: "Careem (an Uber company)",
+    desc: "Delivered AWS cost optimizations saving $336K/yr for Careem Pay. Migrated production from Elastic Beanstalk to EKS; 24/7 on-call." },
+  { when: "Oct 2017 — Aug 2019", role: "DevOps Engineer", co: "Ola Cabs",
+    desc: "Ran large-scale CI/CD on Jenkins + Mesos; migrated payment workloads AWS→Azure for ~20% infra savings." },
+  { when: "May 2015 — Sep 2017", role: "Linux System Engineer", co: "Poornam Info Vision",
+    desc: "Linux administration for 25+ global clients; handled security incidents — spam, spoofing and intrusion mitigation." },
+];
+
+const skills = [
+  { h: "Languages & IaC", tags: ["Go", "Bash", "Terraform", "Terragrunt", "CloudFormation"] },
+  { h: "Cloud & Kubernetes", tags: ["AWS", "Azure", "EKS", "ArgoCD", "Argo Rollouts", "KEDA", "Kyverno", "Istio", "Karpenter"] },
+  { h: "Observability", tags: ["Prometheus", "Grafana", "Datadog", "New Relic", "Vector", "OpenTelemetry", "eBPF"] },
+  { h: "AI Infrastructure", tags: ["MCP", "Claude", "LangGraph", "RAG", "Prophet", "Langfuse", "Streamlit"] },
+];
+---
+
+<Base title="Neel Thomas Thelly — Senior DevOps / SRE / AIOps Engineer" isHome={true}>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero__top rise">
+        <span class="live"><span class="nav__dot" aria-hidden="true"></span> all systems operational</span>
+        <span class="hero__sep">/</span>
+        <span>open to senior SRE · platform · AI-infra roles</span>
+        <span class="right">Mesa, AZ · remote · 2015 → now</span>
+      </div>
+
+      <div class="hero__grid">
+        <div>
+          <h1 class="hero__name rise" style="animation-delay:.06s">
+            <span class="ln">Neel</span>
+            <span class="ln">Thomas</span>
+            <span class="ln ln--accent">Thelly</span>
+          </h1>
+          <p class="hero__role rise" style="animation-delay:.16s">
+            <b>devops</b> <span class="tick">·</span> <b>sre</b> <span class="tick">·</span> <b>aiops</b> engineer
+          </p>
+          <p class="hero__sub rise" style="animation-delay:.24s">
+            I keep large-scale, cloud-native systems reliable — and I'm now putting
+            LLMs to work inside production SRE workflows through MCP and AIOps.
+          </p>
+          <div class="btn-row rise" style="animation-delay:.32s">
+            <a class="btn btn--primary" href={resumeView}>View résumé</a>
+            <a class="btn" href={resume} download="Neel_Thomas_Thelly_Resume.pdf">↓ Download PDF</a>
+            <a class="btn" href="https://github.com/neeltom92" target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="btn" href="https://www.linkedin.com/in/neel-thomas-thelly-646a27131/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+        </div>
+
+        <aside class="panel rise" style="animation-delay:.4s" aria-label="profile summary">
+          <div class="panel__head"><span class="nav__dot" aria-hidden="true" style="animation:none"></span> service summary</div>
+          <div class="panel__row"><span class="panel__k">status</span><span class="panel__v panel__v--ok"><span class="led" aria-hidden="true"></span> available</span></div>
+          <div class="panel__row"><span class="panel__k">experience</span><span class="panel__v">10+ years</span></div>
+          <div class="panel__row"><span class="panel__k">scale</span><span class="panel__v">100M+ users</span></div>
+          <div class="panel__row"><span class="panel__k">domain</span><span class="panel__v">SRE · observability</span></div>
+          <div class="panel__row"><span class="panel__k">focus</span><span class="panel__v">AI infra · MCP</span></div>
+          <div class="panel__row"><span class="panel__k">current</span><span class="panel__v">Life360</span></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section class="sec" id="work">
+    <div class="wrap">
+      <p class="eyebrow reveal">Components · AI-Core / AIOps</p>
+      <h2 class="sec__title reveal" data-d="1">Putting LLMs to work in production SRE workflows</h2>
+      <p class="sec__intro reveal" data-d="2">
+        Tools I built at Life360 to drive AI adoption across infrastructure —
+        Eagle-Eye is open-sourced as an MCP server with growing community traction.
+      </p>
+
+      <div class="proj-grid">
+        {projects.map((p, i) => (
+          <article class="proj reveal" data-d={String((i % 2) + 1)}>
+            <span class="proj__idx">{String(i + 1).padStart(2, "0")}</span>
+            <span class={`proj__tag ${p.oss ? "proj__tag--oss" : ""}`}><span class="led"></span> {p.tag}</span>
+            <h3 class="proj__title">{p.title}</h3>
+            <p class="proj__desc" set:html={p.desc}></p>
+            <div class="stack">{p.stack.map((s) => <span class="chip">{s}</span>)}</div>
+            {p.href && (
+              <a class="proj__link" href={p.href} target="_blank" rel="noopener" aria-label={`${p.title} on GitHub`}>↗</a>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXPERIENCE ===================== -->
+  <section class="sec" id="experience">
+    <div class="wrap">
+      <p class="eyebrow reveal">Uptime history · career log</p>
+      <h2 class="sec__title reveal" data-d="1">A decade keeping systems up</h2>
+
+      <div class="tl">
+        {roles.map((r) => (
+          <div class="tl__item reveal">
+            <span class="tl__node" aria-hidden="true"></span>
+            <span class="tl__when">{r.when}</span>
+            <h3 class="tl__role">{r.role} · <span class="tl__co">{r.co}</span></h3>
+            <p class="tl__desc">{r.desc}</p>
+          </div>
+        ))}
+      </div>
+      <p class="tl__legend">▮ operational — every role shipped and stayed up.</p>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS ===================== -->
+  <section class="sec" id="skills">
+    <div class="wrap">
+      <p class="eyebrow reveal">Monitored systems · toolchain</p>
+      <h2 class="sec__title reveal" data-d="1">Skills</h2>
+      <div class="skills">
+        {skills.map((g, i) => (
+          <div class="skillcard reveal" data-d={String((i % 2) + 1)}>
+            <h4 class="skillcard__h">{g.h}</h4>
+            <div class="stack">{g.tags.map((t) => <span class="chip">{t}</span>)}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CLOSING ===================== -->
+  <section class="cta-band" id="contact-cta">
+    <div class="wrap">
+      <p class="eyebrow reveal" style="justify-content:center">Get in touch</p>
+      <h2 class="reveal" data-d="1">Reliable systems —<br><span class="accent">now with AI in the loop.</span></h2>
+      <p class="reveal" data-d="2">Open to senior SRE, platform and AI-infrastructure roles. Email is the fastest way to reach me.</p>
+      <div class="btn-row reveal" data-d="3">
+        <a class="btn btn--primary" href="mailto:neeltom92@gmail.com">neeltom92@gmail.com</a>
+        <a class="btn" href={resumeView}>View résumé</a>
+        <a class="btn" href={resume} download="Neel_Thomas_Thelly_Resume.pdf">↓ Download PDF</a>
+        <a class="btn" href="https://github.com/neeltom92" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+
+</Base>

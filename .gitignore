@@ -1,6 +1,18 @@
-/public/
-.hugo_build.lock
+# build output
+dist/
+# generated types
+.astro/
+# deps
+node_modules/
+# env
+.env
+.env.production
+# macOS
 .DS_Store
-/resources/_gen/
+# logs
+npm-debug.log*
 
+# Crawler/scrape temporary files
 .firecrawl/
+.hugo_build.lock
+

@@ -1,12 +1,10 @@
-+++
-title = "About"
-description = "Neel Thomas Thelly — Senior DevOps / SRE / AIOps engineer based in Arizona, USA. 10+ years across Kubernetes, observability and AI infrastructure."
-date = "2019-02-28"
-aliases = ["about-us", "about-hugo", "contact"]
-author = "Neel Thomas Thelly"
-+++
+---
+layout: ../layouts/Prose.astro
+title: About
+description: "Neel Thomas Thelly — Senior DevOps / SRE / AIOps engineer based in Arizona, USA. 10+ years across Kubernetes, observability and AI infrastructure."
+---
 
-Hello and welcome to my portfolio website. My name is Neel Thomas Thelly, a senior DevOps / SRE / AIOps engineer based in Arizona, USA. With over  a decade of experience in the industry, I had the privilege of working with renowned companies based in India, UAE and France, starting my career with [Bobcares](https://bobcares.com/), a pioneer in web hosting and server support located in Kochi, India.
+Hello and welcome to my portfolio website. My name is Neel Thomas Thelly, a senior DevOps / SRE / AIOps engineer based in Arizona, USA. With over a decade of experience in the industry, I had the privilege of working with renowned companies based in India, UAE and France, starting my career with [Bobcares](https://bobcares.com/), a pioneer in web hosting and server support located in Kochi, India.
 
 Over the past few years, I've worked for and helped the organisations listed below achieve hyper-scaled growth.
 

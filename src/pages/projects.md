@@ -1,8 +1,8 @@
-+++
-title = "Projects"
-slug = "projects"
-description = "Open-source MCP servers, AI observability tooling, and infrastructure projects by Neel Thomas Thelly."
-+++
+---
+layout: ../layouts/Prose.astro
+title: Projects
+description: "Open-source MCP servers, AI observability tooling, and infrastructure projects by Neel Thomas Thelly."
+---
 
 ## AI / MCP
 

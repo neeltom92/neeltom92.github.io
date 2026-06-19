@@ -1,0 +1,25 @@
+---
+import Base from "./Base.astro";
+
+interface Props {
+  frontmatter: { title: string; description?: string };
+}
+
+const { frontmatter } = Astro.props;
+const eyebrows: Record<string, string> = {
+  About: "Profile · whoami",
+  Projects: "Index · selected work",
+};
+---
+
+<Base title={`${frontmatter.title} · Neel Thomas Thelly`} description={frontmatter.description}>
+  <section class="prose-page">
+    <div class="wrap">
+      <article class="prose">
+        <p class="eyebrow">{eyebrows[frontmatter.title] ?? "Page"}</p>
+        <h1>{frontmatter.title}</h1>
+        <slot />
+      </article>
+    </div>
+  </section>
+</Base>
