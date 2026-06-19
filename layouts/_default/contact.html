@@ -1,0 +1,64 @@
+{{ define "title" }}Contact · Neel Thomas Thelly{{ end }}
+
+{{ define "content" }}
+{{ $resume := "resume.pdf" | relURL }}
+<div class="nt-home">
+  <section class="nt-section" style="border-top:none" id="contact">
+    <div class="nt-wrap nt-contact">
+
+      <div class="nt-contact__intro">
+        <p class="nt-eyebrow">Contact · channels</p>
+        <h1 class="nt-section__title">Let's talk reliability — and AI in the loop</h1>
+        <p class="nt-section__intro">
+          Open to senior SRE, platform and AI-infrastructure roles. Email is the
+          fastest way to reach me; I'm also around on the channels below.
+        </p>
+        <p class="nt-statusline"><span class="nt-led" aria-hidden="true"></span> available · usually replies within a day · Mesa, AZ · remote</p>
+      </div>
+
+      <div class="nt-readout nt-channels" aria-label="contact channels">
+        <div class="nt-readout__head"><span class="nt-led" aria-hidden="true" style="animation:none"></span> reach me</div>
+
+        <a class="nt-channel" href="mailto:neeltom92@gmail.com">
+          <span class="nt-channel__k">Email</span>
+          <span class="nt-channel__v">neeltom92@gmail.com</span>
+          <span class="nt-channel__go" aria-hidden="true">↗</span>
+        </a>
+        <a class="nt-channel" href="https://www.linkedin.com/in/neel-thomas-646a27131/" target="_blank" rel="noopener">
+          <span class="nt-channel__k">LinkedIn</span>
+          <span class="nt-channel__v">in/neel-thomas</span>
+          <span class="nt-channel__go" aria-hidden="true">↗</span>
+        </a>
+        <a class="nt-channel" href="https://github.com/neeltom92" target="_blank" rel="noopener">
+          <span class="nt-channel__k">GitHub</span>
+          <span class="nt-channel__v">@neeltom92</span>
+          <span class="nt-channel__go" aria-hidden="true">↗</span>
+        </a>
+        <a class="nt-channel" href="https://medium.com/@neeltom92" target="_blank" rel="noopener">
+          <span class="nt-channel__k">Medium</span>
+          <span class="nt-channel__v">@neeltom92</span>
+          <span class="nt-channel__go" aria-hidden="true">↗</span>
+        </a>
+        <a class="nt-channel" href="https://twitter.com/NEELTHOMAS11" target="_blank" rel="noopener">
+          <span class="nt-channel__k">X / Twitter</span>
+          <span class="nt-channel__v">@NEELTHOMAS11</span>
+          <span class="nt-channel__go" aria-hidden="true">↗</span>
+        </a>
+        <a class="nt-channel" href="{{ $resume }}" target="_blank" rel="noopener">
+          <span class="nt-channel__k">Résumé</span>
+          <span class="nt-channel__v">PDF</span>
+          <span class="nt-channel__go" aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="nt-wrap" style="margin-top:2rem">
+      <nav class="nt-cta" aria-label="primary contact actions">
+        <a class="nt-btn nt-btn--primary" href="mailto:neeltom92@gmail.com">Email me</a>
+        <a class="nt-btn" href="https://www.linkedin.com/in/neel-thomas-646a27131/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      </nav>
+    </div>
+  </section>
+</div>
+{{ end }}
