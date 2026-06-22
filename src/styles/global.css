@@ -360,6 +360,36 @@ body > * { position: relative; z-index: 2; }
   font-family: var(--mono); font-size: 0.72rem; color: var(--faint);
 }
 
+/* ===========================================================================
+   Award-tier enhancements — live self-monitoring panel + cursor spotlight.
+   Additive only; base look unchanged. Reduced-motion respected.
+   =========================================================================== */
+
+/* project cards: cursor-follow phosphor spotlight */
+.proj { --mx: 50%; --my: -20%; }
+.proj::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(15rem 15rem at var(--mx) var(--my), rgba(201, 242, 91, 0.16), transparent 60%);
+  mix-blend-mode: soft-light; opacity: 0; transition: opacity 0.3s ease;
+}
+.proj:hover::after { opacity: 1; }
+
+/* hero panel: live latency readout — the site monitoring itself (signature) */
+.panel__live { padding: 0.95rem 1.1rem 1.1rem; }
+.panel__live-head {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 0.55rem;
+}
+.panel__ms { color: var(--accent-ink); font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+.spark { width: 100%; height: 40px; display: block; overflow: visible; }
+.spark__line {
+  fill: none; stroke: var(--accent); stroke-width: 1.5;
+  stroke-linejoin: round; stroke-linecap: round;
+  filter: drop-shadow(0 0 4px rgba(201, 242, 91, 0.45));
+}
+.spark__dot { fill: var(--accent); filter: drop-shadow(0 0 5px rgba(201, 242, 91, 0.9)); }
+
 /* --- motion ---------------------------------------------------------------- */
 @keyframes pulse {
   0%   { box-shadow: 0 0 0 0 rgba(201, 242, 91, 0.5); }
@@ -382,4 +412,5 @@ html.js .reveal[data-d="4"] { transition-delay: 0.32s; }
 @media (prefers-reduced-motion: reduce) {
   .rise, html.js .reveal { animation: none; opacity: 1; transform: none; transition: none; }
   .nav__dot, .foot__live { animation: none; }
+  .proj::after { display: none; }
 }

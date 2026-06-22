@@ -172,6 +172,64 @@ const year = new Date().getFullYear();
         );
         els.forEach((el) => io.observe(el));
       }
+
+      // project cards — cursor-follow phosphor spotlight
+      document.querySelectorAll<HTMLElement>(".proj").forEach((card) => {
+        card.addEventListener("pointermove", (e) => {
+          const r = card.getBoundingClientRect();
+          card.style.setProperty("--mx", `${((e.clientX - r.left) / r.width) * 100}%`);
+          card.style.setProperty("--my", `${((e.clientY - r.top) / r.height) * 100}%`);
+        });
+      });
+
+      // hero panel — live p50-latency sparkline (the site monitoring itself)
+      const spark = document.querySelector<SVGSVGElement>(".spark");
+      if (spark) {
+        const line = spark.querySelector<SVGPolylineElement>(".spark__line")!;
+        const dot = spark.querySelector<SVGCircleElement>(".spark__dot")!;
+        const msEl = document.querySelector<HTMLElement>("[data-ms]");
+        const N = 28, W = 240, H = 48, PAD = 5;
+        const xOf = (i: number) => (i / (N - 1)) * W;
+        const yOf = (v: number) => H - PAD - v * (H - 2 * PAD);
+        const sample = () =>
+          Math.random() < 0.12 ? 0.82 + Math.random() * 0.14 : 0.26 + Math.random() * 0.32;
+        const ms = (v: number) => Math.round(34 + v * 150);
+        const render = (arr: number[]) => {
+          line.setAttribute(
+            "points",
+            arr.map((v, i) => `${xOf(i).toFixed(1)},${yOf(v).toFixed(1)}`).join(" ")
+          );
+          dot.setAttribute("cy", yOf(arr[N - 1]).toFixed(1));
+        };
+        let data = Array.from({ length: N }, sample);
+
+        if (reduce) {
+          render(data);
+          if (msEl) msEl.textContent = `${ms(data[N - 1])} ms`;
+        } else {
+          let from = data.slice();
+          let to = data.slice();
+          let t0 = performance.now();
+          const DUR = 1200;
+          const ease = (p: number) => (p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2);
+          const push = () => {
+            from = to.slice();
+            data = data.slice(1);
+            data.push(sample());
+            to = data.slice();
+            t0 = performance.now();
+            if (msEl) msEl.textContent = `${ms(to[N - 1])} ms`;
+          };
+          const frame = (now: number) => {
+            const e = ease(Math.min(1, (now - t0) / DUR));
+            render(from.map((v, i) => v + (to[i] - v) * e));
+            requestAnimationFrame(frame);
+          };
+          push();
+          setInterval(push, DUR);
+          requestAnimationFrame(frame);
+        }
+      }
     </script>
   </body>
 </html>
