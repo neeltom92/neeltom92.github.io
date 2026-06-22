@@ -1,0 +1,27 @@
+<!-- @dsCard group="Brand" viewport="700x200" name="Atmosphere" subtitle="Grain + scanline + corner glow over deep ink" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html, body { height: 100%; }
+  body { margin: 0; position: relative; overflow: hidden; background: var(--bg); background-image: var(--grid-bg); background-size: 26px 26px; color: var(--ink); }
+  .fx-grain, .fx-scan, .fx-glow { position: absolute; }
+  .wrap { position: relative; z-index: 3; padding: 28px 30px; }
+  .eyebrow { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--accent-deep); }
+  h3 { font-family: var(--display); font-weight: 800; text-transform: uppercase; letter-spacing: -0.025em; font-size: 2rem; margin: 10px 0 6px; }
+  p { font-family: var(--display); color: var(--ink-2); margin: 0; max-width: 44ch; line-height: 1.5; }
+</style>
+</head>
+<body>
+  <div class="fx-grain"></div>
+  <div class="fx-scan"></div>
+  <div class="fx-glow"></div>
+  <div class="wrap">
+    <div class="eyebrow">— Substrate</div>
+    <h3>Terminal Noir</h3>
+    <p>A fixed grain + scanline + lime corner-glow stack sits over the deep-ink dot grid on every page.</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+/* ===========================================================================
+   Codeworks — Typography tokens · "Terminal Noir"
+   ---------------------------------------------------------------------------
+   Two voices: an oversized editorial DISPLAY (Bricolage Grotesque) set in
+   tight, uppercase, negative-tracked headings, and a MACHINE voice
+   (JetBrains Mono) for eyebrows, labels, status, chips and metadata.
+   =========================================================================== */
+
+:root {
+  /* --- Families --- */
+  --display: "Bricolage Grotesque", "Times New Roman", serif; /* @kind font */
+  --mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace; /* @kind font */
+
+  --font-display: var(--display);  /* @kind font */ /* hero, headings, body */
+  --font-body:    var(--display);  /* @kind font */ /* prose */
+  --font-ui:      var(--mono);     /* @kind font */ /* labels, status, buttons */
+
+  /* --- Display / heading scale (Bricolage, uppercase, tight) --- */
+  --fs-hero:    clamp(2.5rem, 7vw, 5rem);     /* @kind font */ /* hero name */
+  --fs-cta:     clamp(2.4rem, 8vw, 5.5rem);   /* @kind font */ /* closing band */
+  --fs-h1:      clamp(2.6rem, 7vw, 4.5rem);   /* @kind font */ /* page title */
+  --fs-h2:      clamp(2rem, 5.5vw, 3.6rem);   /* @kind font */ /* section title */
+  --fs-h3:      1.55rem;                       /* @kind font */ /* card title */
+  --fs-h4:      1.18rem;                       /* @kind font */ /* role title */
+
+  /* --- Body scale (Bricolage) --- */
+  --fs-lead:    clamp(1.05rem, 1.6vw, 1.25rem); /* @kind font */ /* hero sub / intro */
+  --fs-body:    1.08rem;                         /* @kind font */
+  --fs-sm:      0.96rem;                          /* @kind font */
+
+  /* --- Machine readout scale (JetBrains Mono) --- */
+  --fs-mono:        0.82rem;   /* @kind font */ /* buttons, panel rows */
+  --fs-mono-sm:     0.76rem;   /* @kind font */ /* nav, captions */
+  --fs-mono-xs:     0.68rem;   /* @kind font */ /* chips, tags, idx */
+  --fs-eyebrow:     0.72rem;   /* @kind font */ /* section eyebrow */
+
+  /* --- Weights --- */
+  --fw-reg:    400; /* @kind font */
+  --fw-med:    500; /* @kind font */
+  --fw-bold:   700; /* @kind font */
+  --fw-black:  800; /* @kind font */ /* display headings */
+
+  /* --- Line heights --- */
+  --lh-display: 0.92;  /* @kind font */ /* hero / headings */
+  --lh-snug:    1.02;  /* @kind font */
+  --lh-body:    1.6;   /* @kind font */ /* prose */
+
+  /* --- Tracking --- */
+  --ls-hero:     -0.04em;  /* @kind font */ /* hero name */
+  --ls-display:  -0.025em; /* @kind font */ /* section titles */
+  --ls-eyebrow:  0.26em;   /* @kind font */ /* eyebrow / nav idx */
+  --ls-label:    0.14em;   /* @kind font */ /* skillcard / panel head */
+  --ls-mono:     0.02em;   /* @kind font */
+}

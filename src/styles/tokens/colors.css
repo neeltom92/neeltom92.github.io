@@ -1,0 +1,49 @@
+/* ===========================================================================
+   Codeworks — Color tokens · "Terminal Noir"
+   ---------------------------------------------------------------------------
+   Operator-console aesthetic: a deep ink canvas with a faint teal cast, a
+   single electric-lime phosphor accent, and amber as the secondary
+   (open-source) signal. Light text on dark. Borders are translucent white.
+   =========================================================================== */
+
+:root {
+  /* --- Canvas / surfaces (deep ink, faint teal) --- */
+  --bg:        #0a0e0d;   /* page substrate */
+  --bg-elev:   #111716;   /* raised panel / card */
+  --bg-elev-2: #161e1c;   /* double-raised */
+  --bg-sunk:   #0c1110;   /* recessed well — chips, code */
+
+  /* --- Text --- */
+  --ink:    #eef3f0;      /* near-white — headings, primary */
+  --ink-2:  #b3bdb8;      /* body */
+  --muted:  #707b76;      /* labels, metadata */
+  --faint:  #4a534f;      /* index numbers, hairline labels */
+
+  /* --- Lines (translucent white) --- */
+  --line:   rgba(238, 243, 240, 0.09);  /* default hairline */
+  --line-2: rgba(238, 243, 240, 0.17);  /* stronger / hover */
+
+  /* --- Accent: electric lime phosphor --- */
+  --accent:      #c9f25b;                 /* primary accent / LED */
+  --accent-ink:  #d8ff72;                 /* brighter — links, hover text */
+  --accent-deep: #9cc23f;                 /* eyebrow / dim accent text */
+  --accent-dim:  rgba(201, 242, 91, 0.13);/* tinted fills, hover wash */
+
+  /* --- Secondary signal: amber (open source) --- */
+  --amber: #ffb454; /* @kind color */
+
+  /* --- Glow (phosphor halo around live dots / primary CTA) --- */
+  --glow-accent: rgba(201, 242, 91, 0.6);  /* @kind color */
+  --glow-soft:   rgba(201, 242, 91, 0.5);  /* @kind color */
+
+  /* --- Semantic aliases (prefer these in components) --- */
+  --text-strong:   var(--ink);
+  --text-body:     var(--ink-2);
+  --text-muted:    var(--muted);
+  --text-link:     var(--accent-ink);
+  --surface-page:  var(--bg);
+  --surface-card:  var(--bg-elev);
+  --surface-sunk:  var(--bg-sunk);
+  --border:        var(--line);
+  --border-strong: var(--line-2);
+}

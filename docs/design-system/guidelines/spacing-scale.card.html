@@ -1,0 +1,23 @@
+<!-- @dsCard group="Spacing" viewport="700x160" name="Spacing Scale" subtitle="--sp-1 through --sp-6" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--bg); color: var(--ink); padding: 22px 26px; font-family: var(--mono); }
+  .row { display: flex; align-items: center; gap: 12px; padding: 5px 0; }
+  .lbl { width: 70px; font-size: 11px; color: var(--muted); }
+  .bar { height: 14px; background: var(--accent); border-radius: 2px; box-shadow: 0 0 10px -1px var(--glow-soft); }
+  .val { font-size: 10px; color: var(--muted); }
+</style>
+</head>
+<body>
+  <div class="row"><span class="lbl">--sp-1</span><span class="bar" style="width:4px"></span><span class="val">0.25rem</span></div>
+  <div class="row"><span class="lbl">--sp-2</span><span class="bar" style="width:7px"></span><span class="val">0.45rem</span></div>
+  <div class="row"><span class="lbl">--sp-3</span><span class="bar" style="width:11px"></span><span class="val">0.7rem</span></div>
+  <div class="row"><span class="lbl">--sp-4</span><span class="bar" style="width:18px"></span><span class="val">1.1rem</span></div>
+  <div class="row"><span class="lbl">--sp-5</span><span class="bar" style="width:26px"></span><span class="val">1.6rem</span></div>
+  <div class="row"><span class="lbl">--sp-6</span><span class="bar" style="width:42px"></span><span class="val">2.6rem</span></div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Text & Lines" subtitle="Near-white ink down to faint, translucent hairlines" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; font-family: var(--mono); background: var(--bg); padding: 22px; }
+  .rows > div { display: flex; align-items: center; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--line); }
+  .dot { width: 26px; height: 14px; border-radius: 3px; flex: none; }
+  .name { font-size: 11px; width: 90px; } .hex { font-size: 10px; color: var(--muted); }
+  .name { color: var(--ink); }
+</style>
+</head>
+<body>
+  <div class="rows">
+    <div><span class="dot" style="background:var(--ink)"></span><span class="name" style="color:var(--ink)">--ink</span><span class="hex">#eef3f0 · headings</span></div>
+    <div><span class="dot" style="background:var(--ink-2)"></span><span class="name" style="color:var(--ink-2)">--ink-2</span><span class="hex">#b3bdb8 · body</span></div>
+    <div><span class="dot" style="background:var(--muted)"></span><span class="name" style="color:var(--muted)">--muted</span><span class="hex">#707b76 · labels</span></div>
+    <div><span class="dot" style="background:var(--faint)"></span><span class="name" style="color:var(--faint)">--faint</span><span class="hex">#4a534f · index nums</span></div>
+    <div style="border:none"><span class="dot" style="background:var(--line-2)"></span><span class="name">--line / line-2</span><span class="hex">translucent white hairlines</span></div>
+  </div>
+</body>
+</html>

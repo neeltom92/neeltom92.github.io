@@ -1,0 +1,28 @@
+/* ===========================================================================
+   Codeworks — Spacing, radius, layout tokens · "Terminal Noir"
+   =========================================================================== */
+
+:root {
+  /* --- Layout --- */
+  --maxw:       78rem;                       /* @kind spacing */ /* content max width */
+  --maxw-prose: 52rem;                       /* @kind spacing */ /* article column */
+  --pad:        clamp(1.15rem, 4.5vw, 3rem); /* @kind spacing */ /* page gutter */
+
+  /* --- Spacing scale --- */
+  --sp-1:   0.25rem;
+  --sp-2:   0.45rem;
+  --sp-3:   0.7rem;
+  --sp-4:   1.1rem;
+  --sp-5:   1.6rem;
+  --sp-6:   2.6rem;
+  --section-y: clamp(3.5rem, 9vw, 7rem); /* @kind spacing */ /* vertical rhythm between sections */
+
+  /* --- Radii (soft, generous on panels) --- */
+  --r-xs:   2px;    /* focus outline */
+  --r-sm:   6px;    /* chips, code */
+  --r-md:   8px;    /* buttons */
+  --r-lg:   12px;   /* skill cards */
+  --r-xl:   14px;   /* panels, project cards */
+  --r-pill: 999px;  /* nav CTA */
+  --r-full: 50%;    /* LEDs / dots */
+}

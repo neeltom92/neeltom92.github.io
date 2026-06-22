@@ -5,7 +5,14 @@
    editorial display type (Bricolage Grotesque), JetBrains Mono for machine
    data, a single electric-lime accent, grain + scanline atmosphere, and
    cinematic staggered reveals on scroll. Confident, dark, asymmetric.
+   ---------------------------------------------------------------------------
+   Design tokens live in ./design-system.css (src/styles/tokens/*). They are
+   the single source of truth for colors, type, spacing, effects and fonts.
+   The :root block below is kept identical to those tokens; values are the
+   same so the live look is unchanged.
    =========================================================================== */
+
+@import "./design-system.css";
 
 :root {
   --bg:        #0a0e0d;            /* deep ink, faint teal */

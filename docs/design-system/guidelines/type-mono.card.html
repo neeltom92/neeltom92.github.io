@@ -1,0 +1,24 @@
+<!-- @dsCard group="Type" viewport="700x210" name="Machine — JetBrains Mono" subtitle="Eyebrows, labels, status, chips, metadata" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--bg-sunk); color: var(--ink); padding: 24px 26px; font-family: var(--mono); }
+  .eyebrow { font-size: 0.72rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--accent-deep); display: inline-flex; align-items: center; gap: 0.6rem; }
+  .eyebrow::before { content: ""; width: 1.8rem; height: 1px; background: var(--accent); opacity: 0.6; }
+  .rows { margin-top: 16px; }
+  .rows > div { display: flex; justify-content: space-between; font-size: 0.82rem; padding: 6px 0; border-bottom: 1px solid var(--line); }
+  .k { color: var(--muted); } .v { color: var(--accent-ink); }
+</style>
+</head>
+<body>
+  <div class="eyebrow">Monitored systems · toolchain</div>
+  <div class="rows">
+    <div><span class="k">status</span><span class="v">available</span></div>
+    <div><span class="k">last_deploy</span><span class="v">2m ago · green</span></div>
+    <div style="border:none"><span class="k">scale</span><span class="v">100M+ users</span></div>
+  </div>
+</body>
+</html>

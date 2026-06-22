@@ -1,0 +1,24 @@
+<!-- @dsCard group="Brand" viewport="700x180" name="Career = Uptime Log" subtitle="Roles as a status timeline; current roles burn lime" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--bg); color: var(--ink); padding: 26px 30px; font-family: var(--display); }
+  .item { position: relative; padding: 0 0 1.3rem 1.8rem; border-left: 1px solid var(--line); }
+  .item:last-child { padding-bottom: 0; border-color: transparent; }
+  .node { position: absolute; left: -6px; top: 4px; width: 11px; height: 11px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent-deep); }
+  .node.live { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 12px 1px rgba(201,242,91,0.5); }
+  .when { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
+  .role { font-weight: 700; font-size: 1.1rem; margin: 2px 0 0; }
+  .co { color: var(--accent-ink); }
+  .legend { font-family: var(--mono); font-size: 0.66rem; color: var(--muted); margin-top: 8px; }
+</style>
+</head>
+<body>
+  <div class="item"><span class="node live"></span><div class="when">Aug 2025 — Present</div><div class="role">Sr SWE, DevOps · <span class="co">Life360</span></div></div>
+  <div class="item"><span class="node"></span><div class="when">Apr 2021 — May 2022</div><div class="role">Site Reliability Engineer · <span class="co">Zolve</span></div></div>
+  <div class="legend">▮ operational — every role shipped and stayed up.</div>
+</body>
+</html>

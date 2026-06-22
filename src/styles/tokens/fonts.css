@@ -1,0 +1,8 @@
+/* ===========================================================================
+   Codeworks — Webfonts · "Terminal Noir"
+   Bricolage Grotesque (editorial display) + JetBrains Mono (machine voice),
+   loaded from Google Fonts — the same source the live site uses. To fully
+   self-host, download both families and add local @font-face rules here.
+   =========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;500;700&display=swap");

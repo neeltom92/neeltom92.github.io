@@ -1,0 +1,25 @@
+<!-- @dsCard group="Spacing" viewport="700x180" name="Radii & Lift" subtitle="Soft rounded panels, deep-black hover shadow" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--bg); background-image: var(--grid-bg); background-size: 26px 26px; padding: 24px 26px; font-family: var(--mono); color: var(--ink); }
+  .row { display: flex; gap: 16px; align-items: flex-end; }
+  .item { text-align: center; }
+  .box { width: 80px; height: 56px; background: var(--bg-elev); border: 1px solid var(--line-2); }
+  .box.sh { box-shadow: var(--shadow-card-hover); transform: translateY(-4px); }
+  .lbl { font-size: 10px; color: var(--muted); margin-top: 9px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="item"><div class="box" style="border-radius:6px"></div><div class="lbl">--r-sm 6px</div></div>
+    <div class="item"><div class="box" style="border-radius:8px"></div><div class="lbl">--r-md 8px</div></div>
+    <div class="item"><div class="box" style="border-radius:12px"></div><div class="lbl">--r-lg 12px</div></div>
+    <div class="item"><div class="box" style="border-radius:14px"></div><div class="lbl">--r-xl 14px</div></div>
+    <div class="item"><div class="box sh" style="border-radius:14px"></div><div class="lbl">hover lift</div></div>
+  </div>
+</body>
+</html>

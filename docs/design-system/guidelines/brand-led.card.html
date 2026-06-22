@@ -1,0 +1,21 @@
+<!-- @dsCard group="Brand" viewport="700x150" name="Live LED" subtitle="Pulsing lime phosphor dot — the system's heartbeat" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--bg-elev); color: var(--ink); padding: 28px; font-family: var(--mono); display: flex; gap: 42px; align-items: center; }
+  .item { display: flex; align-items: center; gap: 10px; font-size: 0.8rem; color: var(--accent-ink); }
+  .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; background: var(--accent); }
+  .dot.live { animation: cwPulse 2.6s infinite; }
+  .dot.amber { background: var(--amber); box-shadow: 0 0 12px 1px rgba(255,180,84,0.6); }
+  .item.amber { color: var(--amber); }
+  .lbl { color: var(--muted); }
+</style>
+</head>
+<body>
+  <div class="item"><span class="dot live"></span>all systems operational <span class="lbl">· pulsing</span></div>
+  <div class="item amber"><span class="dot amber"></span>open source <span class="lbl">· amber</span></div>
+</body>
+</html>

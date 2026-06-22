@@ -1,0 +1,84 @@
+<!-- @dsCard group="Components" viewport="700x620" name="Core Primitives" subtitle="Button · Chip · StatusDot · Eyebrow · ReadoutPanel · ProjectCard · TimelineItem · SkillCard · Channel" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body { margin: 0; background: var(--bg); background-image: var(--grid-bg); background-size: 26px 26px; color: var(--ink); padding: 26px; font-family: var(--display); }
+  .grid { display: grid; gap: 20px; max-width: 640px; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .lbl { font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-deep); margin-bottom: 11px; }
+  .block { border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; background: rgba(255,255,255,0.015); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const NS = window.CodeworksStatusPageDesignSystem_666a0c;
+    const { Button, Chip, StatusDot, Eyebrow, ReadoutPanel, ProjectCard, TimelineItem, SkillCard, Channel } = NS;
+    function Demo() {
+      return (
+        <div className="grid">
+          <div className="block">
+            <div className="lbl">Button</div>
+            <div className="row">
+              <Button variant="primary" href="#">View résumé</Button>
+              <Button href="#">↓ Download PDF</Button>
+              <Button href="#">GitHub ↗</Button>
+            </div>
+          </div>
+
+          <div className="block">
+            <div className="lbl">StatusDot · Chip</div>
+            <div className="row" style={{ marginBottom: 14 }}>
+              <StatusDot label="all systems operational" />
+              <StatusDot tone="amber" pulse={false} label="open source" />
+            </div>
+            <div className="row">
+              <Chip>Kubernetes</Chip><Chip>Prometheus</Chip><Chip>Terraform</Chip><Chip lit>MCP</Chip>
+            </div>
+          </div>
+
+          <div className="block">
+            <Eyebrow>Components · AI-Core / AIOps</Eyebrow>
+            <div className="two">
+              <ProjectCard index={3} tag="open source · observability" oss
+                title="Claude Code Observability"
+                desc="Self-hosted Grafana + OTEL stack tracking Claude Code cost and token usage."
+                stack={["Grafana", "OTEL", "Loki"]} href="#" />
+              <ReadoutPanel title="service summary" rows={[
+                { k: "status", v: "available", ok: true },
+                { k: "experience", v: "10+ years" },
+                { k: "scale", v: "100M+ users" },
+                { k: "focus", v: "AI infra · MCP" },
+              ]} />
+            </div>
+          </div>
+
+          <div className="two">
+            <div className="block">
+              <div className="lbl">TimelineItem</div>
+              <TimelineItem when="Aug 2025 — Present" role="Sr SWE, DevOps" co="Life360" current last>
+                Cloud Success team — CI/CD, observability and release pipelines.
+              </TimelineItem>
+            </div>
+            <SkillCard heading="Observability" items={["Prometheus", "Grafana", "Datadog", "Vector", "eBPF"]} />
+          </div>
+
+          <ReadoutPanel title="reach me">
+            <Channel label="Email" value="neeltom92@gmail.com" href="#" />
+            <Channel label="GitHub" value="@neeltom92" href="#" external last />
+          </ReadoutPanel>
+        </div>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+  </script>
+</body>
+</html>
