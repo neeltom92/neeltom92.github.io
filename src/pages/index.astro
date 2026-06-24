@@ -6,6 +6,12 @@ const resumeView = "/resume/";
 
 const projects = [
   {
+    tag: "open source · observability", oss: true, isNew: true, href: "https://github.com/neeltom92/claude-code-observability",
+    title: "Claude Code Observability",
+    desc: "Self-hosted Grafana + OTEL stack for Claude Code CLI — cost and token usage at a glance, plus per-skill and per-tool invocation tracing most teams have zero visibility into. The skill-usage layer is built for the question enterprise leadership actually asks: which AI workflows are paying off, and which are just burning tokens. One <code>make up</code> brings up Prometheus, Grafana, Loki and an OTEL Collector with ready-made dashboards. Local only — no SaaS, no data leaves your machine.",
+    stack: ["Grafana", "OpenTelemetry", "Prometheus", "Loki", "Docker"],
+  },
+  {
     tag: "open source · MCP server", oss: true, href: "https://github.com/neeltom92",
     title: "SRE Copilot",
     desc: "AI observability assistant for root-cause analysis. Ask in plain language and it queries metrics, logs and traces across Datadog APM, Kubernetes and PagerDuty.",
@@ -16,12 +22,6 @@ const projects = [
     title: "Eagle-Eye",
     desc: "A single pane of glass for on-call engineers — unifies metrics, logs, alerts and debugging context so responders stop tab-hopping during incidents.",
     stack: ["Observability", "MCP", "Incident response", "On-call"],
-  },
-  {
-    tag: "open source · observability", oss: true, href: "https://github.com/neeltom92/claude-code-observability",
-    title: "Claude Code Observability",
-    desc: "Self-hosted Grafana + OTEL stack that tracks Claude Code CLI cost and token usage — and uniquely captures skill/tool invocation analytics. One <code>make up</code> brings up Prometheus, Grafana, Loki and an OTEL Collector with ready-made dashboards. Local only — no SaaS, no data leaves your machine.",
-    stack: ["Grafana", "OpenTelemetry", "Prometheus", "Loki", "Docker"],
   },
   {
     tag: "capacity planning", oss: false, href: null,
@@ -132,6 +132,7 @@ const skills = [
         {projects.map((p, i) => (
           <article class="proj reveal" data-d={String((i % 2) + 1)}>
             <span class="proj__idx">{String(i + 1).padStart(2, "0")}</span>
+            {p.isNew && <span class="proj__new">New</span>}
             <span class={`proj__tag ${p.oss ? "proj__tag--oss" : ""}`}><span class="led"></span> {p.tag}</span>
             <h3 class="proj__title">{p.title}</h3>
             <p class="proj__desc" set:html={p.desc}></p>

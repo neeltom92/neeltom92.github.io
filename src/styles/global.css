@@ -233,6 +233,12 @@ body > * { position: relative; z-index: 2; }
 .proj:hover { border-color: var(--line-2); transform: translateY(-4px); box-shadow: 0 24px 50px -30px rgba(0, 0, 0, 0.9); }
 .proj:hover::before { transform: scaleY(1); }
 .proj__idx { font-family: var(--mono); font-size: 0.7rem; color: var(--faint); position: absolute; top: 1.4rem; right: 1.4rem; }
+.proj__new {
+  font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase;
+  position: absolute; top: 1.4rem; right: 1.4rem; color: var(--bg); background: var(--accent);
+  padding: 0.22rem 0.55rem; border-radius: 5px; font-weight: 700;
+}
+.proj:has(.proj__new) .proj__idx { display: none; }
 .proj__tag {
   font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase;
   display: inline-flex; align-items: center; gap: 0.45rem; color: var(--accent-ink); margin-bottom: 1rem;
