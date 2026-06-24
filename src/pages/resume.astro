@@ -1,7 +1,8 @@
 ---
 import Base from "../layouts/Base.astro";
 
-const resume = "/resume.pdf";
+const resumeVersion = (import.meta.env.PUBLIC_GIT_SHA || "dev").slice(0, 7);
+const resume = `/resume.pdf?v=${resumeVersion}`;
 const description = "Résumé of Neel Thomas Thelly — Senior DevOps / SRE / AIOps Engineer.";
 
 const gallery = [
