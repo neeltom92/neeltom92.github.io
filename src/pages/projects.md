@@ -7,8 +7,8 @@ description: "Open-source MCP servers, AI observability tooling, and infrastruct
 ## AI / MCP
 
 * **Claude Code Observability** (new) — Self-hosted Grafana + OTEL stack for Claude Code CLI: cost/token usage plus per-skill and per-tool invocation tracing, built for the question enterprise leadership asks — which AI workflows pay off vs. burn tokens. One `make up`, local only, no SaaS. → [GitHub](https://github.com/neeltom92/claude-code-observability)
-* **SRE Copilot** — AI-powered observability chat assistant for root-cause analysis (Claude Sonnet + LangGraph), integrating Datadog APM, Kubernetes and PagerDuty. Open-sourced as an MCP server. → [GitHub](https://github.com/neeltom92)
-* **Eagle-Eye** — Internal AI observability tool: a single-pane-of-glass across metrics, logs, alerts and debugging context for on-call engineers. Open-sourced as an MCP server. → [GitHub](https://github.com/neeltom92)
+* **SRE Copilot** — AI-powered observability chat assistant for root-cause analysis (Claude Sonnet + LangGraph), integrating Datadog APM, Kubernetes and PagerDuty. Open-sourced as an MCP server. → [GitHub](https://github.com/neeltom92/sre-copilot)
+* **Eagle-Eye** — Internal AI observability tool: a single-pane-of-glass across metrics, logs, alerts and debugging context for on-call engineers. Open-sourced as an MCP server. → [GitHub](https://github.com/neeltom92/eagle-eye-mcp)
 * **Forecasting MCP** — Capacity-planning MCP using Datadog time-series + Facebook Prophet to forecast traffic spikes and proactively size CPU, memory and HPA for peak events.
 * **SLICK (Streamlit One-Click)** — Internal vibe-coding platform on top of the GitOps stack for one-click deploys of AI apps; adopted by 10+ teams.
 
