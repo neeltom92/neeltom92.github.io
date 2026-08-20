@@ -40,13 +40,13 @@ window.DATA = {
   ],
 
   roles: [
-    { when: "Aug 2025 — Present", role: "Sr Software Engineer, DevOps", co: "Life360",
+    { when: "Aug 2026 — Present", role: "Site Reliability Engineer", co: "Financial services (contract)",
+      desc: "Reliability engineering for an enterprise data and marketing platform." },
+    { when: "Aug 2025 — Jul 2026", role: "Sr Software Engineer, DevOps", co: "Life360",
       desc: "Cloud Success team — CI/CD, observability and release pipelines. Built Eagle-Eye (open-sourced MCP server, 10+ stars), a Prophet-based capacity-planning MCP and the SLICK platform; evaluated 30+ AI dev tools and provisioned a dedicated EKS cluster for MCP workloads." },
     { when: "Jun 2023 — Jul 2025", role: "Sr Software Engineer, Network Operations", co: "Life360",
       desc: "Owned observability for 125+ Kubernetes services supporting 100M+ users. Replaced logging agents with Vector (6TB+/day), ran Prometheus on EKS, and led an OpenTelemetry PoC and eBPF service mapping." },
-    { when: "Nov 2022 — May 2023", role: "DevOps Engineer", co: "Dview.io",
-      desc: "Founding engineer at a pre-seed data platform. Built full AWS infra with Terraform/Terragrunt/Atlantis, multi-region EKS, ArgoCD GitOps and SLI/SLO frameworks." },
-    { when: "May 2022 — Nov 2022", role: "DevOps Consultant", co: "Freelance",
+    { when: "May 2022 — May 2023", role: "DevOps Consultant", co: "Freelance",
       desc: "End-to-end cloud & Kubernetes infrastructure for startups; DevOps advisory to 5+ SaaS portfolio companies under Together Fund." },
     { when: "Apr 2021 — May 2022", role: "Site Reliability Engineer", co: "Zolve",
       desc: "Built the entire cloud + Kubernetes platform for a $210M neobank — 20+ microservices on multi-region EKS, CI/CD, GitOps and Prometheus/Grafana observability." },
@@ -88,12 +88,10 @@ window.DATA = {
       { co: "Life360", note: "Publicly traded family-safety company · 60M+ customers worldwide · San Mateo, CA" },
       { co: "Ola Cabs", note: "Mobility startup valued at $6B · Bangalore, India" },
       { co: "Careem (Uber)", note: "An Uber company · Dubai, U.A.E." },
-      { co: "Scaleway", note: "2nd largest cloud provider in Europe · Paris, France" },
     ],
     built: [
       { co: "Zolve", note: "Neobank valued at $210M · US & India" },
       { co: "Arcab", note: "Mobility company · Dubai" },
-      { co: "Dview", note: "Data platform — a Fivetran / HevoData alternative" },
     ],
   },
 };

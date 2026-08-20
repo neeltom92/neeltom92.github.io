@@ -13,7 +13,7 @@ const projects = [
     stack: ["Grafana", "OpenTelemetry", "Prometheus", "Loki", "Docker"],
   },
   {
-    tag: "open source · MCP server", oss: true, href: "https://github.com/neeltom92/sre-copilot",
+    tag: "open source · MCP server · 14 ★", oss: true, href: "https://github.com/neeltom92/sre-copilot",
     title: "SRE Copilot",
     desc: "AI observability assistant for root-cause analysis. Ask in plain language and it queries metrics, logs and traces across Datadog APM, Kubernetes and PagerDuty.",
     stack: ["Claude Sonnet", "LangGraph", "Datadog", "Kubernetes", "MCP"],
@@ -27,13 +27,13 @@ const projects = [
 ];
 
 const roles = [
-  { when: "Aug 2025 — Present", role: "Sr Software Engineer, DevOps", co: "Life360",
-    desc: "CI/CD, observability and release pipelines, plus AI adoption across infra. Built Eagle-Eye (open-sourced MCP server, 10+ stars) and a forecasting MCP for capacity planning; evaluated 30+ AI dev tools and provisioned a dedicated EKS cluster for MCP workloads." },
+  { when: "Aug 2026 — Present", role: "Site Reliability Engineer", co: "Financial services (contract)",
+    desc: "Reliability engineering for an enterprise data and marketing platform." },
+  { when: "Aug 2025 — Jul 2026", role: "Sr Software Engineer, DevOps", co: "Life360",
+    desc: "CI/CD, observability and release pipelines, plus AI adoption across infra. Built Eagle-Eye (open-sourced MCP server, 10+ stars) and SRE Copilot (14 stars), plus a Prophet-based forecasting MCP for capacity planning; shipped SLICK, an internal AI app platform adopted by 10+ teams." },
   { when: "Jun 2023 — Jul 2025", role: "Sr Software Engineer, Network Operations", co: "Life360",
     desc: "Owned observability for 125+ Kubernetes services supporting 100M+ users. Replaced logging agents with Vector (6TB+/day), ran Prometheus on EKS, and led an OpenTelemetry PoC and eBPF service mapping." },
-  { when: "Nov 2022 — May 2023", role: "DevOps Engineer", co: "Dview.io",
-    desc: "Founding engineer at a pre-seed data platform. Built full AWS infra with Terraform/Terragrunt/Atlantis, multi-region EKS, ArgoCD GitOps and SLI/SLO frameworks." },
-  { when: "May 2022 — Nov 2022", role: "DevOps Consultant", co: "Freelance",
+  { when: "May 2022 — May 2023", role: "DevOps Consultant", co: "Freelance",
     desc: "End-to-end cloud & Kubernetes infrastructure for startups; DevOps advisory to 5+ SaaS portfolio companies under Together Fund." },
   { when: "Apr 2021 — May 2022", role: "Site Reliability Engineer", co: "Zolve",
     desc: "Built the entire cloud + Kubernetes platform for a $210M neobank — 20+ microservices on multi-region EKS, CI/CD, GitOps and Prometheus/Grafana observability." },
@@ -46,8 +46,8 @@ const roles = [
 ];
 
 const skills = [
-  { h: "Languages & IaC", tags: ["Go", "Bash", "Terraform", "Terragrunt", "CloudFormation"] },
-  { h: "Cloud & Kubernetes", tags: ["AWS", "Azure", "EKS", "ArgoCD", "Argo Rollouts", "KEDA", "Kyverno", "Istio", "Karpenter"] },
+  { h: "Languages & IaC", tags: ["Python", "Go", "Bash", "Terraform", "Terragrunt", "CloudFormation"] },
+  { h: "Cloud & Kubernetes", tags: ["AWS", "Azure", "EKS", "Helm", "ArgoCD", "Argo Rollouts", "KEDA", "Kyverno", "Istio", "Karpenter"] },
   { h: "Observability", tags: ["Prometheus", "Grafana", "Datadog", "New Relic", "Vector", "OpenTelemetry", "eBPF"] },
   { h: "AI Infrastructure", tags: ["MCP", "Claude", "LangGraph", "RAG", "Prophet", "Langfuse", "Streamlit"] },
 ];
@@ -92,6 +92,7 @@ const skills = [
           <div class="panel__row"><span class="panel__k">status</span><span class="panel__v panel__v--ok"><span class="led" aria-hidden="true"></span> available</span></div>
           <div class="panel__row"><span class="panel__k">experience</span><span class="panel__v">10+ years</span></div>
           <div class="panel__row"><span class="panel__k">scale</span><span class="panel__v">100M+ users</span></div>
+          <div class="panel__row"><span class="panel__k">open source</span><span class="panel__v">42 ★ on GitHub</span></div>
           <div class="panel__row"><span class="panel__k">domain</span><span class="panel__v">SRE · observability</span></div>
           <div class="panel__row"><span class="panel__k">focus</span><span class="panel__v">AI infra · MCP</span></div>
           <div class="panel__live">
