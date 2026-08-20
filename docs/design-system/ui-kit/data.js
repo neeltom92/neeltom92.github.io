@@ -42,10 +42,8 @@ window.DATA = {
   roles: [
     { when: "Aug 2026 — Present", role: "Site Reliability Engineer", co: "Financial services (contract)",
       desc: "Reliability engineering for an enterprise data and marketing platform." },
-    { when: "Aug 2025 — Jul 2026", role: "Sr Software Engineer, DevOps", co: "Life360",
-      desc: "Cloud Success team — CI/CD, observability and release pipelines. Built Eagle-Eye (open-sourced MCP server, 10+ stars), a Prophet-based capacity-planning MCP and the SLICK platform; evaluated 30+ AI dev tools and provisioned a dedicated EKS cluster for MCP workloads." },
-    { when: "Jun 2023 — Jul 2025", role: "Sr Software Engineer, Network Operations", co: "Life360",
-      desc: "Owned observability for 125+ Kubernetes services supporting 100M+ users. Replaced logging agents with Vector (6TB+/day), ran Prometheus on EKS, and led an OpenTelemetry PoC and eBPF service mapping." },
+    { when: "Jun 2023 — Jul 2026", role: "Sr Software Engineer, DevOps", co: "Life360",
+      desc: "Owned observability for 125+ Kubernetes services supporting 100M+ users — Vector (6TB+/day), Prometheus on EKS, an OpenTelemetry PoC and eBPF service mapping — then CI/CD, release pipelines and AI adoption across infra. Built Eagle-Eye, SRE Copilot, a Prophet-based capacity-planning MCP and the SLICK platform." },
     { when: "May 2022 — May 2023", role: "DevOps Consultant", co: "Freelance",
       desc: "End-to-end cloud & Kubernetes infrastructure for startups; DevOps advisory to 5+ SaaS portfolio companies under Together Fund." },
     { when: "Apr 2021 — May 2022", role: "Site Reliability Engineer", co: "Zolve",
