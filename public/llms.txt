@@ -1,0 +1,32 @@
+# Codeworks
+
+> Codeworks is the independent consulting practice of Neel Thomas Thelly, an AI, cloud and DevOps consultant based in Mesa, Arizona. He works with teams across the Phoenix metro (Phoenix, Scottsdale, Tempe, Chandler, Gilbert, Mesa) and remotely across the US. Projects are fixed-price with a written scope; clients work directly with Neel.
+
+Before starting Codeworks, Neel spent about ten years in DevOps and SRE roles at companies including Life360, Careem, Zolve and Ola, and he maintains a few open-source tools for operations teams (SRE Copilot, Eagle-Eye, Claude Code Observability).
+
+## Services
+
+- [Infrastructure & AI Readiness Review](https://codeworks.cloud/#services): review of cloud, deployments, monitoring, security and costs, with a written report and prioritized fixes.
+- [AWS & Azure Cloud Consulting](https://codeworks.cloud/#services): cloud architecture, migrations and cost reduction.
+- [DevOps & CI/CD](https://codeworks.cloud/#services): automated build, test and deploy pipelines; infrastructure as code with Terraform.
+- [Kubernetes & Platform Engineering](https://codeworks.cloud/#services): EKS setup, upgrades, autoscaling and security policies.
+- [Monitoring & Reliability](https://codeworks.cloud/#services): dashboards, alerting, on-call setup and incident reviews.
+- [AI Implementation](https://codeworks.cloud/#services): taking chatbot, agent and LLM pilots to production with private deployment, access control, cost tracking and quality checks.
+- [Part-time DevOps Support](https://codeworks.cloud/#services): ongoing help a few days a month on a monthly arrangement.
+
+Not offered: help desk / office IT, website hosting, strategy-only AI engagements.
+
+## Pages
+
+- [Home](https://codeworks.cloud/): services, process, track record, FAQ
+- [About](https://codeworks.cloud/about/): background and companies scaled
+- [Projects](https://codeworks.cloud/projects/): open-source MCP servers and infrastructure projects
+- [Résumé](https://codeworks.cloud/resume/): full CV (PDF)
+- [Contact](https://codeworks.cloud/contact/): book an intro call or email
+
+## Contact
+
+- Book a call: https://calendly.com/neeltom92/new-meeting
+- Email: neeltom92@gmail.com
+- LinkedIn: https://www.linkedin.com/in/neel-thomas-thelly-646a27131/
+- GitHub: https://github.com/neeltom92

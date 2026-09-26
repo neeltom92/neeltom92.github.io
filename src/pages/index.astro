@@ -1,169 +1,342 @@
 ---
 import Base from "../layouts/Base.astro";
 
-const resumeVersion = (import.meta.env.PUBLIC_GIT_SHA || "dev").slice(0, 7);
-const resume = `/resume.pdf?v=${resumeVersion}`;
-const resumeView = "/resume/";
+const booking = "https://calendly.com/neeltom92/new-meeting";
+
+// Situations people usually reach out about.
+const situations = [
+  "Your AWS or Azure bill keeps going up and it's hard to tell why.",
+  "Deployments are manual or stressful, so releases happen less often than you'd like.",
+  "Outages get noticed by customers before your monitoring catches them.",
+  "You have an AI pilot that works in a demo and you want to run it properly.",
+  "The person who knows your infrastructure best is stretched thin, or has moved on.",
+  "You'd like senior DevOps help, but a full-time hire doesn't make sense yet.",
+];
+
+const services = [
+  {
+    tag: "a good place to start",
+    title: "Infrastructure & AI Readiness Review",
+    desc: "I look at your cloud setup, deployments, monitoring, security and costs, then write up what's working, what's risky and what I'd fix first.",
+    stack: ["Written report", "Cost review", "Prioritized fixes"],
+  },
+  {
+    tag: "cloud",
+    title: "AWS & Azure Cloud Consulting",
+    desc: "Architecture, migrations and cost reviews. Setting up accounts, networking and access so they're easy to manage later.",
+    stack: ["AWS", "Azure", "Cost reviews", "Migrations"],
+  },
+  {
+    tag: "devops",
+    title: "DevOps & CI/CD",
+    desc: "Automated build, test and deploy pipelines, with infrastructure written as code so environments can be reviewed and rebuilt.",
+    stack: ["GitHub Actions", "Terraform", "ArgoCD", "GitOps"],
+  },
+  {
+    tag: "kubernetes",
+    title: "Kubernetes & Platform Engineering",
+    desc: "Setting up or upgrading EKS clusters, autoscaling and security policies. If Kubernetes isn't the right fit for you yet, I'll say so.",
+    stack: ["EKS", "Helm", "Karpenter", "Istio"],
+  },
+  {
+    tag: "sre",
+    title: "Monitoring & Reliability",
+    desc: "Dashboards and alerts that are useful rather than noisy, a sensible on-call setup, and incident reviews that help problems not repeat.",
+    stack: ["Prometheus", "Grafana", "Datadog", "OpenTelemetry"],
+  },
+  {
+    tag: "ai",
+    title: "AI Implementation",
+    desc: "Helping move a chatbot, agent or LLM pilot into production with private deployment, access control, cost tracking and quality checks.",
+    stack: ["LLMs", "RAG", "MCP", "AWS Bedrock"],
+  },
+  {
+    tag: "ongoing",
+    title: "Part-time DevOps Support",
+    desc: "If you need ongoing help rather than a one-off project, I can work with your team a few days a month on a monthly arrangement.",
+    stack: ["Monthly", "Part-time", "No long contract"],
+  },
+];
+
+// Background — kept factual and brief; the résumé has the details.
+const background = [
+  { when: "2023 — 2026", role: "Sr Software Engineer, DevOps", co: "Life360", desc: "Worked on observability, CI/CD and internal AI tooling for the Kubernetes platform." },
+  { when: "2022 — 2023", role: "DevOps Consultant", co: "Freelance", desc: "Cloud and Kubernetes setup for startups, and DevOps advice for SaaS companies." },
+  { when: "2021 — 2022", role: "Site Reliability Engineer", co: "Zolve", desc: "Helped build the AWS and Kubernetes platform for a new fintech." },
+  { when: "2019 — 2020", role: "Site Reliability Engineer", co: "Careem", desc: "Worked on AWS cost optimization and moving production onto Kubernetes." },
+  { when: "2017 — 2019", role: "DevOps Engineer", co: "Ola Cabs", desc: "Ran CI/CD and helped migrate payment workloads from AWS to Azure." },
+];
 
 const projects = [
   {
-    tag: "open source · observability", oss: true, isNew: true, href: "https://github.com/neeltom92/claude-code-observability",
-    title: "Claude Code Observability",
-    desc: "Self-hosted Grafana + OTEL stack for Claude Code CLI — cost and token usage at a glance, plus per-skill and per-tool invocation tracing most teams have zero visibility into. The skill-usage layer is built for the question enterprise leadership actually asks: which skills get used most, and how many tokens they're burning. One <code>make up</code> brings up Prometheus, Grafana, Loki and an OTEL Collector with ready-made dashboards. Local only — no SaaS, no data leaves your machine.",
-    stack: ["Grafana", "OpenTelemetry", "Prometheus", "Loki", "Docker"],
-  },
-  {
-    tag: "open source · MCP server · 14 ★", oss: true, href: "https://github.com/neeltom92/sre-copilot",
+    href: "https://github.com/neeltom92/sre-copilot",
     title: "SRE Copilot",
-    desc: "AI observability assistant for root-cause analysis. Ask in plain language and it queries metrics, logs and traces across Datadog APM, Kubernetes and PagerDuty.",
-    stack: ["Claude Sonnet", "LangGraph", "Datadog", "Kubernetes", "MCP"],
+    desc: "An assistant for incident debugging that pulls metrics, logs and traces from Datadog, Kubernetes and PagerDuty.",
   },
   {
-    tag: "open source · MCP server · 10+ ★", oss: true, href: "https://github.com/neeltom92/eagle-eye-mcp",
+    href: "https://github.com/neeltom92/eagle-eye-mcp",
     title: "Eagle-Eye",
-    desc: "A single pane of glass for on-call engineers — unifies metrics, logs, alerts and debugging context so responders stop tab-hopping during incidents.",
-    stack: ["Observability", "MCP", "Incident response", "On-call"],
+    desc: "A single view of metrics, logs and alerts for on-call engineers.",
+  },
+  {
+    href: "https://github.com/neeltom92/claude-code-observability",
+    title: "Claude Code Observability",
+    desc: "Local dashboards showing how a team uses AI coding tools: cost, tokens and tool usage.",
   },
 ];
 
-const roles = [
-  { when: "Aug 2026 — Present", role: "Site Reliability Engineer", co: "Financial services (contract)",
-    desc: "Reliability engineering for an enterprise data and marketing platform." },
-  { when: "Jun 2023 — Jul 2026", role: "Sr Software Engineer, DevOps", co: "Life360",
-    desc: "Owned observability for 125+ Kubernetes services supporting 100M+ users — Vector (6TB+/day), Prometheus on EKS, an OpenTelemetry PoC and eBPF service mapping — then CI/CD, release pipelines and AI adoption across infra. Built Eagle-Eye (10 stars) and SRE Copilot (14 stars), a Prophet-based capacity-planning MCP, and SLICK, an internal AI app platform adopted by 10+ teams." },
-  { when: "May 2022 — May 2023", role: "DevOps Consultant", co: "Freelance",
-    desc: "End-to-end cloud & Kubernetes infrastructure for startups; DevOps advisory to 5+ SaaS portfolio companies under Together Fund." },
-  { when: "Apr 2021 — May 2022", role: "Site Reliability Engineer", co: "Zolve",
-    desc: "Built the entire cloud + Kubernetes platform for a $210M neobank — 20+ microservices on multi-region EKS, CI/CD, GitOps and Prometheus/Grafana observability." },
-  { when: "Sep 2019 — Sep 2020", role: "Site Reliability Engineer", co: "Careem (an Uber company)",
-    desc: "Delivered AWS cost optimizations saving $336K/yr for Careem Pay. Migrated production from Elastic Beanstalk to EKS; 24/7 on-call." },
-  { when: "Oct 2017 — Aug 2019", role: "DevOps Engineer", co: "Ola Cabs",
-    desc: "Ran large-scale CI/CD on Jenkins + Mesos; migrated payment workloads AWS→Azure for ~20% infra savings." },
-  { when: "May 2015 — Sep 2017", role: "Linux System Engineer", co: "Poornam Info Vision",
-    desc: "Linux administration for 25+ global clients; handled security incidents — spam, spoofing and intrusion mitigation." },
+const goodFit = [
+  "Startups and mid-size companies around Phoenix running on AWS or Azure",
+  "Software teams without a dedicated DevOps or SRE engineer",
+  "Teams with an AI pilot they want to take to production",
+  "Regulated teams, like finance and healthcare, that need things documented",
 ];
 
-const skills = [
-  { h: "Languages & IaC", tags: ["Python", "Go", "Bash", "Terraform", "Terragrunt", "CloudFormation"] },
-  { h: "Cloud & Kubernetes", tags: ["AWS", "Azure", "EKS", "Helm", "ArgoCD", "Argo Rollouts", "KEDA", "Kyverno", "Istio", "Karpenter"] },
-  { h: "Observability", tags: ["Prometheus", "Grafana", "Datadog", "New Relic", "Vector", "OpenTelemetry", "eBPF"] },
-  { h: "AI Infrastructure", tags: ["MCP", "Claude", "LangGraph", "RAG", "Prophet", "Langfuse", "Streamlit"] },
+const notFit = [
+  "Help desk, laptops, email or office IT. A managed IT provider is a better choice for that.",
+  "Website hosting or WordPress sites",
+  "Strategy-only AI work without anything being built",
+];
+
+const industries = ["Financial services & fintech", "Healthcare", "Semiconductor & manufacturing", "Logistics", "SaaS & startups"];
+
+// Valley map: real lat/long projected onto Phoenix's 1-mile street grid
+// (~20.8 SVG units per mile at this latitude).
+const LON0 = -112.25, LAT0 = 33.6, PX = 1200, PY = 1437, MILE = 20.8;
+const pt = (lat: number, lon: number) => ({ x: +((lon - LON0) * PX).toFixed(1), y: +((LAT0 - lat) * PY).toFixed(1) });
+const phoenix = pt(33.4484, -112.074);
+const mesa = pt(33.4152, -111.8315);
+const cities = [
+  { name: "Phoenix", ...phoenix, label: "left" },
+  { name: "Scottsdale", ...pt(33.4942, -111.9261), label: "right" },
+  { name: "Tempe", ...pt(33.4255, -111.94), label: "below" },
+  { name: "Gilbert", ...pt(33.3528, -111.789), label: "right" },
+  { name: "Chandler", ...pt(33.3062, -111.8413), label: "left" },
+];
+const mesaStar = Array.from({ length: 10 }, (_, i) => {
+  const a = -Math.PI / 2 + (i * Math.PI) / 5;
+  const r = i % 2 ? 5 : 12.5;
+  return `${(mesa.x + r * Math.cos(a)).toFixed(1)},${(mesa.y + r * Math.sin(a)).toFixed(1)}`;
+}).join(" ");
+
+const steps = [
+  { role: "A free call", desc: "We talk about what you're working on and whether I'm the right person to help." },
+  { role: "A written proposal", desc: "Scope, timeline and a fixed price, so there are no surprises." },
+  { role: "The work", desc: "Done in your own cloud accounts and repositories, with regular updates along the way." },
+  { role: "Handover", desc: "Documentation and a walkthrough so your team is comfortable owning it. Ongoing support is optional." },
+];
+
+const faqs = [
+  { q: "What is Codeworks?", a: "Codeworks is the name of my independent consulting practice. When you work with Codeworks, you work directly with me, Neel Thomas Thelly." },
+  { q: "Do you work on-site?", a: "Yes. I'm based in Mesa and happy to come on-site anywhere in the Phoenix metro for kickoffs, workshops and planning. Day-to-day work is usually remote." },
+  { q: "We're a small company. Is this a fit?", a: "Often, yes. I try to recommend the simplest setup that works for your team, which sometimes means a managed service rather than something more complex." },
+  { q: "Do you replace our IT provider?", a: "No. I focus on the cloud infrastructure, deployments and AI systems behind your software. Your IT provider would keep handling laptops, email and office IT." },
+  { q: "Which clouds and AI models do you work with?", a: "Mainly AWS and Azure. For AI, hosted models like Claude or AWS Bedrock, or self-hosted open-weight models when data needs to stay in your environment." },
+  { q: "What happens to our data?", a: "All work happens in your accounts, under your access controls. I'm happy to sign an NDA." },
+  { q: "How does pricing work?", a: "Projects are fixed-price and quoted in writing after the first call. Part-time support is a monthly arrangement with no long-term contract." },
+];
+
+const site = Astro.site!.href;
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  },
+  ...services.map((s) => ({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: s.title,
+    description: s.desc,
+    provider: { "@id": `${site}#business` },
+    areaServed: { "@type": "State", name: "Arizona" },
+    url: `${site}#services`,
+  })),
 ];
 ---
 
-<Base title="Neel Thomas Thelly — Senior DevOps / SRE / AIOps Engineer" isHome={true}>
+<Base isHome={true} schema={schema}>
 
   <!-- ===================== HERO ===================== -->
   <section class="hero">
-    <div class="wrap">
-      <div class="hero__top rise">
-        <span class="live"><span class="nav__dot" aria-hidden="true"></span> all systems operational</span>
-        <span class="hero__sep">/</span>
-        <span>open to senior SRE · platform · AI-infra roles</span>
-        <span class="right">Mesa, AZ · remote · 2015 → now</span>
-      </div>
-
-      <div class="hero__grid">
-        <div>
-          <h1 class="hero__name rise" style="animation-delay:.06s">
-            <span class="ln">Neel</span>
-            <span class="ln">Thomas</span>
-            <span class="ln ln--accent">Thelly</span>
-          </h1>
-          <p class="hero__role rise" style="animation-delay:.16s">
-            <b>devops</b> <span class="tick">·</span> <b>sre</b> <span class="tick">·</span> <b>aiops</b> engineer
-          </p>
-          <p class="hero__sub rise" style="animation-delay:.24s">
-            I keep large-scale, cloud-native systems reliable — and I'm now putting
-            LLMs to work inside production SRE workflows through MCP and AIOps.
-          </p>
-          <div class="btn-row rise" style="animation-delay:.32s">
-            <a class="btn btn--primary" href={resumeView}>View résumé</a>
-            <a class="btn" href={resume} download="Neel_Thomas_Thelly_Resume.pdf">↓ Download PDF</a>
-            <a class="btn" href="https://github.com/neeltom92" target="_blank" rel="noopener">GitHub ↗</a>
-            <a class="btn" href="https://www.linkedin.com/in/neel-thomas-thelly-646a27131/" target="_blank" rel="noopener">LinkedIn ↗</a>
-          </div>
+    <div class="wrap hero__grid">
+      <div>
+        <p class="eyebrow">Independent consultant · Mesa, Arizona</p>
+        <h1 class="hero__title">AI, cloud &amp; DevOps consulting <em>in Phoenix.</em></h1>
+        <p class="hero__sub">
+          Hi, I'm Neel. Codeworks is my independent consulting practice in Mesa.
+          I help teams with their cloud setup, deployments, monitoring and AI
+          projects, working alongside your engineers.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href={booking} target="_blank" rel="noopener">Book a free call</a>
+          <a class="btn" href="#services">See services</a>
         </div>
-
-        <aside class="panel rise" style="animation-delay:.4s" aria-label="profile summary">
-          <div class="panel__head"><span class="nav__dot" aria-hidden="true" style="animation:none"></span> service summary</div>
-          <div class="panel__row"><span class="panel__k">status</span><span class="panel__v panel__v--ok"><span class="led" aria-hidden="true"></span> available</span></div>
-          <div class="panel__row"><span class="panel__k">experience</span><span class="panel__v">10+ years</span></div>
-          <div class="panel__row"><span class="panel__k">scale</span><span class="panel__v">100M+ users</span></div>
-          <div class="panel__row"><span class="panel__k">open source</span><span class="panel__v">42 ★ on GitHub</span></div>
-          <div class="panel__row"><span class="panel__k">domain</span><span class="panel__v">SRE · observability</span></div>
-          <div class="panel__row"><span class="panel__k">focus</span><span class="panel__v">AI infra · MCP</span></div>
-          <div class="panel__live">
-            <div class="panel__live-head"><span>req latency · p50</span><span class="panel__ms" data-ms>— ms</span></div>
-            <svg class="spark" viewBox="0 0 240 48" preserveAspectRatio="none" aria-hidden="true">
-              <polyline class="spark__line" points=""></polyline>
-              <circle class="spark__dot" cx="240" cy="24" r="2.6"></circle>
-            </svg>
-          </div>
-        </aside>
+        <ul class="assure">
+          <li>You work directly with me</li>
+          <li>Fixed-price projects</li>
+          <li>First call is free</li>
+        </ul>
       </div>
+
+      <figure class="map">
+        <div class="map__head"><b>Service area</b><span>Phoenix metro, AZ</span></div>
+        <svg viewBox="130 112 520 348" role="img" aria-label="Map of the Phoenix metro: Phoenix, Scottsdale, Tempe, Chandler and Gilbert around a home base in Mesa.">
+          <defs>
+            <pattern id="mile" width={MILE} height={MILE} patternUnits="userSpaceOnUse" x={phoenix.x} y={phoenix.y}>
+              <path d={`M ${MILE} 0 L 0 0 0 ${MILE}`} class="map__grid" fill="none" />
+            </pattern>
+          </defs>
+          <rect x="130" y="112" width="520" height="348" fill="url(#mile)" />
+          {cities.map((c, i) => (
+            <line class="map__spoke" x1={mesa.x} y1={mesa.y} x2={c.x} y2={c.y} style={`--i:${i}`} />
+          ))}
+          {cities.map((c, i) => (
+            <g class="map__pin" style={`--i:${i}`}>
+              <circle class="map__dot" cx={c.x} cy={c.y} r="6" />
+              <text class="map__city" x={c.label === "left" ? c.x - 13 : c.label === "right" ? c.x + 13 : c.x} y={c.label === "below" ? c.y + 24 : c.y + 4.5} text-anchor={c.label === "left" ? "end" : c.label === "right" ? "start" : "middle"}>{c.name}</text>
+            </g>
+          ))}
+          <polygon class="map__base" points={mesaStar} />
+          <text class="map__base-label" x={mesa.x + 17} y={mesa.y + 1}>Mesa</text>
+          <text class="map__base-note" x={mesa.x + 17} y={mesa.y + 16}>based here</text>
+          <text class="map__legend" x="144" y="447">1 square = 1 mile of Valley street grid</text>
+          <text class="map__legend" x="636" y="132" text-anchor="end">N ↑</text>
+        </svg>
+        <figcaption class="map__foot"><span>On-site across the Valley</span><span>Remote across the US</span></figcaption>
+      </figure>
     </div>
   </section>
 
-  <!-- ===================== PROJECTS ===================== -->
-  <section class="sec" id="work">
-    <div class="wrap">
-      <p class="eyebrow reveal">Components · AI-Core / AIOps</p>
-      <h2 class="sec__title reveal" data-d="1">Open-source AI tooling for infra teams</h2>
-      <p class="sec__intro reveal" data-d="2">
-        MCP servers and AIOps tooling that put LLMs to work on observability, capacity
-        planning and incident response — Eagle-Eye is open-sourced with growing community traction.
-      </p>
+  <!-- ===================== SITUATIONS ===================== -->
+  <section class="sec sec--white" id="problems">
+    <div class="wrap split">
+      <div class="split__aside">
+        <p class="eyebrow">Where I can help</p>
+        <h2 class="sec__title">Sound familiar?</h2>
+        <p class="sec__intro">If any of these sound like your team, I'm happy to talk it through.</p>
+      </div>
+      <ul class="problems">
+        {situations.map((s) => <li class="reveal">{s}</li>)}
+      </ul>
+    </div>
+  </section>
 
-      <div class="proj-grid">
-        {projects.map((p, i) => (
-          <article class="proj reveal" data-d={String((i % 2) + 1)}>
-            <span class="proj__idx">{String(i + 1).padStart(2, "0")}</span>
-            {p.isNew && <span class="proj__new">New</span>}
-            <span class={`proj__tag ${p.oss ? "proj__tag--oss" : ""}`}><span class="led"></span> {p.tag}</span>
-            <h3 class="proj__title">{p.title}</h3>
-            <p class="proj__desc" set:html={p.desc}></p>
-            <div class="stack">{p.stack.map((s) => <span class="chip">{s}</span>)}</div>
-            {p.href && (
-              <a class="proj__link" href={p.href} target="_blank" rel="noopener" aria-label={`${p.title} on GitHub`}>↗</a>
-            )}
+  <!-- ===================== SERVICES ===================== -->
+  <section class="sec" id="services">
+    <div class="wrap">
+      <p class="eyebrow">Services</p>
+      <h2 class="sec__title">How I can help</h2>
+      <p class="sec__intro">
+        Most engagements start with a short review. Each project gets a written scope
+        and a fixed price before any work begins.
+      </p>
+      <div class="svc-grid">
+        {services.map((s, i) => (
+          <article class={`svc reveal${i === 0 ? " svc--lead" : ""}`} data-d={String((i % 3) + 1)}>
+            <div class="svc__head">
+              <span class="svc__tag">{s.tag}</span>
+              <h3 class="svc__title">{s.title}</h3>
+            </div>
+            <div class="svc__body">
+              <p class="svc__desc">{s.desc}</p>
+              <div class="stack">{s.stack.map((t) => <span class="chip">{t}</span>)}</div>
+            </div>
           </article>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- ===================== EXPERIENCE ===================== -->
-  <section class="sec" id="experience">
-    <div class="wrap">
-      <p class="eyebrow reveal">Uptime history · career log</p>
-      <h2 class="sec__title reveal" data-d="1">A decade keeping systems up</h2>
-
-      <div class="tl">
-        {roles.map((r) => (
-          <div class="tl__item reveal">
-            <span class="tl__node" aria-hidden="true"></span>
-            <span class="tl__when">{r.when}</span>
-            <h3 class="tl__role">{r.role} · <span class="tl__co">{r.co}</span></h3>
-            <p class="tl__desc">{r.desc}</p>
-          </div>
-        ))}
+  <!-- ===================== ABOUT ===================== -->
+  <section class="sec sec--white" id="background">
+    <div class="wrap me">
+      <div>
+        <div class="me__photo"><img src="/images/avatar.jpg" alt="Neel Thomas Thelly" width="600" height="600" loading="lazy" /></div>
+        <p class="eyebrow">About me</p>
+        <h2 class="sec__title">A bit about me</h2>
+        <p class="sec__intro">
+          Before starting Codeworks, I spent about ten years in DevOps and SRE roles at
+          startups and larger tech companies. The full details are on my
+          <a href="/resume/">résumé</a>.
+        </p>
       </div>
-      <p class="tl__legend">▮ operational — every role shipped and stayed up.</p>
+      <div>
+        <div class="tl">
+          {background.map((r) => (
+            <div class="tl__item">
+              <span class="tl__when">{r.when}</span>
+              <h3 class="tl__role">{r.role} · <span class="tl__co">{r.co}</span></h3>
+              <p class="tl__desc">{r.desc}</p>
+            </div>
+          ))}
+        </div>
+        <h3 class="sub__title">Open-source side projects</h3>
+        <ul class="side">
+          {projects.map((p) => (
+            <li><a href={p.href} target="_blank" rel="noopener">{p.title}</a> {p.desc}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   </section>
 
-  <!-- ===================== SKILLS ===================== -->
-  <section class="sec" id="skills">
+  <!-- ===================== FIT ===================== -->
+  <section class="sec" id="fit">
     <div class="wrap">
-      <p class="eyebrow reveal">Monitored systems · toolchain</p>
-      <h2 class="sec__title reveal" data-d="1">Skills</h2>
-      <div class="skills">
-        {skills.map((g, i) => (
-          <div class="skillcard reveal" data-d={String((i % 2) + 1)}>
-            <h4 class="skillcard__h">{g.h}</h4>
-            <div class="stack">{g.tags.map((t) => <span class="chip">{t}</span>)}</div>
-          </div>
+      <p class="eyebrow">Who I work with</p>
+      <h2 class="sec__title">Is this a good fit?</h2>
+      <div class="fit-grid">
+        <div class="fitcard reveal">
+          <h3>Usually a good fit</h3>
+          <ul class="fit">{goodFit.map((t) => <li>{t}</li>)}</ul>
+        </div>
+        <div class="fitcard fitcard--no reveal" data-d="1">
+          <h3>Probably not the right fit</h3>
+          <ul class="fit fit--no">{notFit.map((t) => <li>{t}</li>)}</ul>
+        </div>
+      </div>
+      <div class="industries">
+        <span class="industries__k">Industries</span>
+        {industries.map((t) => <span class="chip">{t}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROCESS ===================== -->
+  <section class="sec sec--white" id="process">
+    <div class="wrap">
+      <p class="eyebrow">How it works</p>
+      <h2 class="sec__title">Working together</h2>
+      <ol class="steps">
+        {steps.map((s) => (
+          <li class="step">
+            <h3 class="step__title">{s.role}</h3>
+            <p class="step__desc">{s.desc}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="sec" id="faq">
+    <div class="wrap split">
+      <div class="split__aside">
+        <p class="eyebrow">FAQ</p>
+        <h2 class="sec__title">Common questions</h2>
+        <p class="sec__intro">Something else on your mind? <a href="mailto:neeltom92@gmail.com">Send me an email</a>.</p>
+      </div>
+      <div class="faq">
+        {faqs.map((f) => (
+          <details class="faq__item">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
         ))}
       </div>
     </div>
@@ -171,15 +344,14 @@ const skills = [
 
   <!-- ===================== CLOSING ===================== -->
   <section class="cta-band" id="contact-cta">
-    <div class="wrap">
-      <p class="eyebrow reveal" style="justify-content:center">Get in touch</p>
-      <h2 class="reveal" data-d="1">Reliable systems —<br><span class="accent">now with AI in the loop.</span></h2>
-      <p class="reveal" data-d="2">Open to senior SRE, platform and AI-infrastructure roles. Email is the fastest way to reach me.</p>
-      <div class="btn-row reveal" data-d="3">
-        <a class="btn btn--primary" href="mailto:neeltom92@gmail.com">neeltom92@gmail.com</a>
-        <a class="btn" href={resumeView}>View résumé</a>
-        <a class="btn" href={resume} download="Neel_Thomas_Thelly_Resume.pdf">↓ Download PDF</a>
-        <a class="btn" href="https://github.com/neeltom92" target="_blank" rel="noopener">GitHub ↗</a>
+    <div class="wrap cta-band__in">
+      <h2>Let's talk about <em>your project.</em></h2>
+      <div>
+        <p>The first call is free and there's no obligation. If I'm not the right fit, I'll try to point you to someone who is.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href={booking} target="_blank" rel="noopener">Book a free call</a>
+          <a class="btn" href="mailto:neeltom92@gmail.com">Email me</a>
+        </div>
       </div>
     </div>
   </section>
