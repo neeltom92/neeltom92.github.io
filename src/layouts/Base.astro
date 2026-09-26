@@ -1,38 +1,74 @@
 ---
 import "../styles/global.css";
 
-const SITE_TITLE = "Neel Thomas Thelly";
+const SITE_TITLE = "Codeworks";
 const DEFAULT_DESC =
-  "Neel Thomas Thelly — Senior DevOps / SRE / AIOps Engineer with 10+ years building scalable, reliable cloud-native infrastructure. Kubernetes, observability, and AI infrastructure (MCP, LLM agents, AIOps).";
+  "Codeworks — AI infrastructure and SRE consulting in Mesa, Arizona. Neel Thomas Thelly helps Phoenix-area companies take AI from pilot to production: Kubernetes, observability, LLM platforms, MCP and AIOps.";
 const KEYWORDS =
-  "Neel Thomas Thelly, DevOps Engineer, Site Reliability Engineer, SRE, AIOps, Platform Engineer, Kubernetes, AWS, EKS, Observability, Terraform, Terragrunt, Helm, ArgoCD, GitOps, Python, MCP, AI Infrastructure, LLM agents, Datadog, Prometheus, Grafana, OpenTelemetry, Incident Response, SLO, Phoenix, Arizona, remote";
+  "AI consultant Phoenix, AI infrastructure consulting Arizona, DevOps consultant Phoenix, SRE consulting, AIOps, MLOps, LLMOps, platform engineering, Kubernetes consulting, AWS consulting, observability, MCP, LLM agents, Scottsdale, Tempe, Chandler, Gilbert, Mesa, Neel Thomas Thelly, Codeworks";
+const BOOKING = "https://calendly.com/neeltom92/new-meeting";
+const CITIES = ["Phoenix", "Scottsdale", "Tempe", "Chandler", "Gilbert", "Mesa"];
 
 interface Props {
   title?: string;
   description?: string;
   isHome?: boolean;
+  schema?: object[]; // extra page-level JSON-LD
+  noindex?: boolean;
 }
 
-const { title, description = DEFAULT_DESC, isHome = false } = Astro.props;
-const pageTitle = title ?? `${SITE_TITLE} — Senior DevOps / SRE / AIOps Engineer`;
+const { title, description = DEFAULT_DESC, isHome = false, schema = [], noindex = false } = Astro.props;
+const pageTitle = title ?? `${SITE_TITLE} — AI Infrastructure & SRE Consulting · Phoenix, AZ`;
 
-const ogImage = new URL("/images/N90.jpg", Astro.site).href;
+const ogImage = new URL("/images/og.png", Astro.site).href;
+const photo = new URL("/images/N90.jpg", Astro.site).href;
 const siteUrl = Astro.site?.href ?? "https://codeworks.cloud/";
 
 const navItems = [
-  { name: "About", url: "/about/", idx: "01" },
-  { name: "Projects", url: "/projects/", idx: "02" },
-  { name: "Contact", url: "/contact/", idx: "03" },
+  { name: "Services", url: "/#services", idx: "01" },
+  { name: "About", url: "/about/", idx: "02" },
+  { name: "Projects", url: "/projects/", idx: "03" },
   { name: "Resume", url: "/resume/", idx: "04" },
+  { name: "Contact", url: "/contact/", idx: "05" },
 ];
+
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": `${siteUrl}#business`,
+  name: SITE_TITLE,
+  alternateName: "Codeworks Cloud",
+  url: siteUrl,
+  image: ogImage,
+  logo: new URL("/images/apple-touch-icon.png", Astro.site).href,
+  description: DEFAULT_DESC,
+  slogan: "AI that ships. Systems that stay up.",
+  email: "mailto:neeltom92@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Mesa",
+    addressRegion: "AZ",
+    addressCountry: "US",
+  },
+  areaServed: CITIES.map((name) => ({ "@type": "City", name: `${name}, AZ` })),
+  founder: { "@id": `${siteUrl}#person` },
+  knowsAbout: [
+    "AI infrastructure", "LLMOps", "AIOps", "Site Reliability Engineering",
+    "Platform Engineering", "Kubernetes", "Observability", "Model Context Protocol",
+    "Cloud cost optimization", "AWS", "Azure",
+  ],
+  sameAs: ["https://github.com/neeltom92", "https://www.linkedin.com/in/neel-thomas-thelly-646a27131/"],
+};
 
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": `${siteUrl}#person`,
   name: "Neel Thomas Thelly",
   url: siteUrl,
-  image: ogImage,
-  jobTitle: "Senior DevOps / SRE / AIOps Engineer",
+  image: photo,
+  jobTitle: "Founder, AI Infrastructure & SRE Consultant",
+  worksFor: { "@id": `${siteUrl}#business` },
   email: "mailto:neeltom92@gmail.com",
   address: {
     "@type": "PostalAddress",
@@ -66,6 +102,9 @@ const year = new Date().getFullYear();
     <meta name="description" content={description} />
     <meta name="keywords" content={KEYWORDS} />
     <meta name="author" content="Neel Thomas Thelly" />
+    <meta name="robots" content={noindex ? "noindex" : "index, follow, max-image-preview:large, max-snippet:-1"} />
+    <meta name="geo.region" content="US-AZ" />
+    <meta name="geo.placename" content="Mesa, Arizona" />
     <meta name="theme-color" content="#0a0e0d" />
     <link rel="canonical" href={Astro.url.href} />
 
@@ -74,11 +113,17 @@ const year = new Date().getFullYear();
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
 
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE_TITLE} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={Astro.url.href} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Codeworks — AI infrastructure and SRE consulting, Phoenix and Mesa, Arizona" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@NEELTHOMAS11" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
@@ -90,8 +135,8 @@ const year = new Date().getFullYear();
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;500;700&display=swap"
     />
 
-    {isHome && (
-      <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    {(isHome || schema.length > 0) && (
+      <script type="application/ld+json" set:html={JSON.stringify([...(isHome ? [businessSchema, personSchema] : []), ...schema])} />
     )}
 
     <script is:inline>
@@ -107,7 +152,7 @@ const year = new Date().getFullYear();
     <header class="nav">
       <div class="nav__in">
         <a class="nav__brand" href="/">
-          <span class="nav__dot" aria-hidden="true"></span>neel<span class="nav__brand-accent">.thelly</span>
+          <span class="nav__dot" aria-hidden="true"></span>codeworks<span class="nav__brand-accent">.cloud</span>
         </a>
         <nav class="nav__links" aria-label="primary">
           {navItems.map((item) => (
@@ -116,7 +161,7 @@ const year = new Date().getFullYear();
             </a>
           ))}
         </nav>
-        <a class="nav__cta" href="mailto:neeltom92@gmail.com">Get in touch ↗</a>
+        <a class="nav__cta" href={BOOKING} target="_blank" rel="noopener">Book a call ↗</a>
       </div>
     </header>
 
@@ -127,8 +172,8 @@ const year = new Date().getFullYear();
     <footer class="foot">
       <div class="foot__in">
         <div class="foot__brand">
-          <span class="foot__big">NEEL THOMAS THELLY</span>
-          <span class="foot__tag">// reliable systems — now with AI in the loop</span>
+          <span class="foot__big">CODEWORKS</span>
+          <span class="foot__tag">// AI infrastructure & SRE consulting · Neel Thomas Thelly · Mesa, AZ</span>
         </div>
         <div class="foot__grid">
           <div class="foot__col">
@@ -140,13 +185,14 @@ const year = new Date().getFullYear();
           </div>
           <div class="foot__col">
             <span class="foot__k">direct</span>
+            <a href={BOOKING} target="_blank" rel="noopener">Book a call ↗</a>
             <a href="mailto:neeltom92@gmail.com">neeltom92@gmail.com</a>
-            <span class="foot__loc">Mesa, AZ · remote</span>
-            <span class="foot__loc"><span class="foot__live"></span> available for work</span>
+            <span class="foot__loc">Mesa, AZ · serving the Valley</span>
+            <span class="foot__loc"><span class="foot__live"></span> booking new engagements</span>
           </div>
         </div>
         <div class="foot__base">
-          <span>© {year} Neel Thomas Thelly</span>
+          <span>© {year} Codeworks · Neel Thomas Thelly</span>
           <span>built with Astro · deployed on Cloudflare</span>
         </div>
       </div>

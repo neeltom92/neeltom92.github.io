@@ -2,7 +2,7 @@
 import Base from "../layouts/Base.astro";
 
 const description =
-  "Neel Thomas Thelly — Senior DevOps / SRE / AIOps engineer based in Arizona, USA. 10+ years across Kubernetes, observability and AI infrastructure, with stints in the UAE, France and the US.";
+  "Neel Thomas Thelly, founder of Codeworks — senior SRE / AIOps engineer in Mesa, Arizona. 10+ years across Kubernetes, observability and AI infrastructure for companies like Life360, Careem and Ola.";
 
 // Companies I helped scale.
 const scaled = [
@@ -30,12 +30,14 @@ const session = [
     out: "Mesa, AZ · remote" },
   { cmd: "uptime",
     out: "10+ years in production" },
+  { cmd: "cat ./now",
+    out: 'running <b>codeworks</b> — AI infra &amp; SRE consulting for Valley companies' },
   { cmd: "stack --top",
     out: "kubernetes · observability · AI infra (MCP · LLM agents)" },
 ];
 ---
 
-<Base title="About · Neel Thomas Thelly" description={description}>
+<Base title="About Neel Thomas Thelly · Codeworks" description={description}>
   <section class="about">
     <div class="wrap">
       <p class="eyebrow reveal">Profile · whoami</p>
@@ -64,7 +66,9 @@ const session = [
       <p class="about__lead reveal" data-d="3">
         Over a decade in, I keep large-scale cloud-native systems reliable —
         and I'm now putting LLMs to work inside production SRE workflows through
-        MCP and AIOps. The journey started at
+        MCP and AIOps. Through <a href="/#services">Codeworks</a>, I now help
+        Arizona companies get AI into production on infrastructure that stays up.
+        The journey started at
         <a href="https://bobcares.com/" target="_blank" rel="noopener">Bobcares</a> 🇮🇳,
         and has since taken me travelling around, working in the UAE 🇦🇪,
         France 🇫🇷 and the US 🇺🇸.
@@ -131,7 +135,8 @@ const session = [
       <div class="btn-row reveal" data-d="2">
         <a class="btn btn--primary" href="/projects/">View projects</a>
         <a class="btn" href="/resume/">Résumé</a>
-        <a class="btn" href="mailto:neeltom92@gmail.com">Get in touch ↗</a>
+        <a class="btn" href="/#services">Services</a>
+        <a class="btn" href="https://calendly.com/neeltom92/new-meeting" target="_blank" rel="noopener">Book a call ↗</a>
       </div>
     </div>
   </section>

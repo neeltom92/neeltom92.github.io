@@ -1,0 +1,27 @@
+# Codeworks
+
+> Codeworks is the AI infrastructure and SRE consulting practice of Neel Thomas Thelly, based in Mesa, Arizona. It helps companies across the Phoenix metro (Phoenix, Scottsdale, Tempe, Chandler, Gilbert, Mesa) and remotely across the US take AI from pilot to production on infrastructure that is observable, secure and affordable to run.
+
+Neel has 10+ years in DevOps and site reliability engineering, including owning observability for 125+ Kubernetes services supporting 100M+ users at Life360, $336K/yr in AWS savings at Careem (an Uber company), and building the full cloud and Kubernetes platform for the neobank Zolve. He maintains open-source AIOps tooling (SRE Copilot, Eagle-Eye, Claude Code Observability).
+
+## Services
+
+- [AI Readiness Audit](https://codeworks.cloud/#services): ~2-week fixed-scope review of cloud, Kubernetes, data and security posture, ending in a prioritized roadmap.
+- [Pilot to Production](https://codeworks.cloud/#services): 4–8 week engagement to take one LLM or agent use case live with a model gateway, evals, tracing, cost guardrails, CI/CD and runbooks.
+- [AI for your on-call team](https://codeworks.cloud/#services): MCP servers and copilots wired into Datadog, Prometheus, Kubernetes and PagerDuty for faster incident triage.
+- [Fractional Platform / SRE Lead](https://codeworks.cloud/#services): ongoing senior platform and reliability leadership — SLOs, observability, Kubernetes, cloud cost and incident process.
+
+## Pages
+
+- [Home](https://codeworks.cloud/): services, process, track record, FAQ
+- [About](https://codeworks.cloud/about/): background and companies scaled
+- [Projects](https://codeworks.cloud/projects/): open-source MCP servers and infrastructure projects
+- [Résumé](https://codeworks.cloud/resume/): full CV (PDF)
+- [Contact](https://codeworks.cloud/contact/): book an intro call or email
+
+## Contact
+
+- Book a call: https://calendly.com/neeltom92/new-meeting
+- Email: neeltom92@gmail.com
+- LinkedIn: https://www.linkedin.com/in/neel-thomas-thelly-646a27131/
+- GitHub: https://github.com/neeltom92
