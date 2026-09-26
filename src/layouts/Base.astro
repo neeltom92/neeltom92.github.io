@@ -25,11 +25,11 @@ const photo = new URL("/images/N90.jpg", Astro.site).href;
 const siteUrl = Astro.site?.href ?? "https://codeworks.cloud/";
 
 const navItems = [
-  { name: "Services", url: "/#services", idx: "01" },
-  { name: "About", url: "/about/", idx: "02" },
-  { name: "Projects", url: "/projects/", idx: "03" },
-  { name: "Resume", url: "/resume/", idx: "04" },
-  { name: "Contact", url: "/contact/", idx: "05" },
+  { name: "Services", url: "/#services" },
+  { name: "About", url: "/about/" },
+  { name: "Projects", url: "/projects/" },
+  { name: "Résumé", url: "/resume/" },
+  { name: "Contact", url: "/contact/" },
 ];
 
 const businessSchema = {
@@ -90,6 +90,13 @@ const personSchema = {
 };
 
 const year = new Date().getFullYear();
+
+// Copper star from the Arizona flag — the brand mark.
+const STAR = Array.from({ length: 10 }, (_, i) => {
+  const a = -Math.PI / 2 + (i * Math.PI) / 5;
+  const r = i % 2 ? 3.8 : 9.6;
+  return `${(10 + r * Math.cos(a)).toFixed(2)},${(10.6 + r * Math.sin(a)).toFixed(2)}`;
+}).join(" ");
 ---
 
 <!doctype html>
@@ -104,7 +111,7 @@ const year = new Date().getFullYear();
     <meta name="robots" content={noindex ? "noindex" : "index, follow, max-image-preview:large, max-snippet:-1"} />
     <meta name="geo.region" content="US-AZ" />
     <meta name="geo.placename" content="Mesa, Arizona" />
-    <meta name="theme-color" content="#0a0e0d" />
+    <meta name="theme-color" content="#edf1ef" />
     <link rel="canonical" href={Astro.url.href} />
 
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
@@ -131,7 +138,7 @@ const year = new Date().getFullYear();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700;800;900&family=Overpass+Mono:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
     />
 
     {(isHome || schema.length > 0) && (
@@ -143,24 +150,19 @@ const year = new Date().getFullYear();
     </script>
   </head>
   <body>
-    <!-- atmosphere -->
-    <div class="fx-grain" aria-hidden="true"></div>
-    <div class="fx-scan" aria-hidden="true"></div>
-    <div class="fx-glow" aria-hidden="true"></div>
-
     <header class="nav">
       <div class="nav__in">
         <a class="nav__brand" href="/">
-          <span class="nav__dot" aria-hidden="true"></span>codeworks<span class="nav__brand-accent">.cloud</span>
+          <svg class="nav__star" viewBox="0 0 20 20" aria-hidden="true"><polygon points={STAR} /></svg>Codeworks
         </a>
         <nav class="nav__links" aria-label="primary">
           {navItems.map((item) => (
             <a class="nav__link" href={item.url}>
-              <span class="nav__idx">{item.idx}</span>{item.name}
+              {item.name}
             </a>
           ))}
         </nav>
-        <a class="nav__cta" href={BOOKING} target="_blank" rel="noopener">Book a call ↗</a>
+        <a class="nav__cta" href={BOOKING} target="_blank" rel="noopener">Book a free call</a>
       </div>
     </header>
 
@@ -170,9 +172,10 @@ const year = new Date().getFullYear();
 
     <footer class="foot">
       <div class="foot__in">
+        <div class="foot__top">
         <div class="foot__brand">
-          <span class="foot__big">CODEWORKS</span>
-          <span class="foot__tag">// independent consulting by Neel Thomas Thelly · Mesa, AZ</span>
+          <span class="foot__big"><svg class="nav__star" viewBox="0 0 20 20" aria-hidden="true"><polygon points={STAR} /></svg>Codeworks</span>
+          <span class="foot__tag">Independent AI, cloud and DevOps consulting by Neel Thomas Thelly, based in Mesa, Arizona.</span>
         </div>
         <div class="foot__grid">
           <div class="foot__col">
@@ -186,19 +189,20 @@ const year = new Date().getFullYear();
             <span class="foot__k">direct</span>
             <a href={BOOKING} target="_blank" rel="noopener">Book a call ↗</a>
             <a href="mailto:neeltom92@gmail.com">neeltom92@gmail.com</a>
-            <span class="foot__loc">Mesa, AZ · serving the Phoenix metro</span>
+            <span class="foot__loc">Based in Mesa, serving the Phoenix metro</span>
             <span class="foot__loc"><span class="foot__live"></span> taking new projects</span>
           </div>
         </div>
+        </div>
         <div class="foot__base">
           <span>© {year} Codeworks · Neel Thomas Thelly</span>
-          <span>built with Astro · deployed on Cloudflare</span>
+          <span>Mesa, Arizona</span>
         </div>
       </div>
     </footer>
 
     <script>
-      // cinematic scroll reveal
+      // scroll reveal
       const els = document.querySelectorAll<HTMLElement>(".reveal");
       const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (reduce || !("IntersectionObserver" in window)) {
@@ -216,64 +220,6 @@ const year = new Date().getFullYear();
           { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
         );
         els.forEach((el) => io.observe(el));
-      }
-
-      // project cards — cursor-follow phosphor spotlight
-      document.querySelectorAll<HTMLElement>(".proj").forEach((card) => {
-        card.addEventListener("pointermove", (e) => {
-          const r = card.getBoundingClientRect();
-          card.style.setProperty("--mx", `${((e.clientX - r.left) / r.width) * 100}%`);
-          card.style.setProperty("--my", `${((e.clientY - r.top) / r.height) * 100}%`);
-        });
-      });
-
-      // hero panel — live p50-latency sparkline (the site monitoring itself)
-      const spark = document.querySelector<SVGSVGElement>(".spark");
-      if (spark) {
-        const line = spark.querySelector<SVGPolylineElement>(".spark__line")!;
-        const dot = spark.querySelector<SVGCircleElement>(".spark__dot")!;
-        const msEl = document.querySelector<HTMLElement>("[data-ms]");
-        const N = 28, W = 240, H = 48, PAD = 5;
-        const xOf = (i: number) => (i / (N - 1)) * W;
-        const yOf = (v: number) => H - PAD - v * (H - 2 * PAD);
-        const sample = () =>
-          Math.random() < 0.12 ? 0.82 + Math.random() * 0.14 : 0.26 + Math.random() * 0.32;
-        const ms = (v: number) => Math.round(34 + v * 150);
-        const render = (arr: number[]) => {
-          line.setAttribute(
-            "points",
-            arr.map((v, i) => `${xOf(i).toFixed(1)},${yOf(v).toFixed(1)}`).join(" ")
-          );
-          dot.setAttribute("cy", yOf(arr[N - 1]).toFixed(1));
-        };
-        let data = Array.from({ length: N }, sample);
-
-        if (reduce) {
-          render(data);
-          if (msEl) msEl.textContent = `${ms(data[N - 1])} ms`;
-        } else {
-          let from = data.slice();
-          let to = data.slice();
-          let t0 = performance.now();
-          const DUR = 1200;
-          const ease = (p: number) => (p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2);
-          const push = () => {
-            from = to.slice();
-            data = data.slice(1);
-            data.push(sample());
-            to = data.slice();
-            t0 = performance.now();
-            if (msEl) msEl.textContent = `${ms(to[N - 1])} ms`;
-          };
-          const frame = (now: number) => {
-            const e = ease(Math.min(1, (now - t0) / DUR));
-            render(from.map((v, i) => v + (to[i] - v) * e));
-            requestAnimationFrame(frame);
-          };
-          push();
-          setInterval(push, DUR);
-          requestAnimationFrame(frame);
-        }
       }
     </script>
   </body>

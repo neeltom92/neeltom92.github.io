@@ -98,16 +98,32 @@ const notFit = [
   "Strategy-only AI work without anything being built",
 ];
 
-const coverage = [
-  { h: "Where", tags: ["Phoenix", "Scottsdale", "Tempe", "Chandler", "Gilbert", "Mesa", "Remote across the US"] },
-  { h: "Industries", tags: ["Financial services & fintech", "Healthcare", "Semiconductor & manufacturing", "Logistics", "SaaS & startups"] },
+const industries = ["Financial services & fintech", "Healthcare", "Semiconductor & manufacturing", "Logistics", "SaaS & startups"];
+
+// Valley map: real lat/long projected onto Phoenix's 1-mile street grid
+// (~20.8 SVG units per mile at this latitude).
+const LON0 = -112.25, LAT0 = 33.6, PX = 1200, PY = 1437, MILE = 20.8;
+const pt = (lat: number, lon: number) => ({ x: +((lon - LON0) * PX).toFixed(1), y: +((LAT0 - lat) * PY).toFixed(1) });
+const phoenix = pt(33.4484, -112.074);
+const mesa = pt(33.4152, -111.8315);
+const cities = [
+  { name: "Phoenix", ...phoenix, label: "left" },
+  { name: "Scottsdale", ...pt(33.4942, -111.9261), label: "right" },
+  { name: "Tempe", ...pt(33.4255, -111.94), label: "below" },
+  { name: "Gilbert", ...pt(33.3528, -111.789), label: "right" },
+  { name: "Chandler", ...pt(33.3062, -111.8413), label: "left" },
 ];
+const mesaStar = Array.from({ length: 10 }, (_, i) => {
+  const a = -Math.PI / 2 + (i * Math.PI) / 5;
+  const r = i % 2 ? 5 : 12.5;
+  return `${(mesa.x + r * Math.cos(a)).toFixed(1)},${(mesa.y + r * Math.sin(a)).toFixed(1)}`;
+}).join(" ");
 
 const steps = [
-  { when: "Step 01", role: "A free call", desc: "We talk about what you're working on and whether I'm the right person to help." },
-  { when: "Step 02", role: "A written proposal", desc: "Scope, timeline and a fixed price, so there are no surprises." },
-  { when: "Step 03", role: "The work", desc: "Done in your own cloud accounts and repositories, with regular updates along the way." },
-  { when: "Step 04", role: "Handover", desc: "Documentation and a walkthrough so your team is comfortable owning it. Ongoing support is optional." },
+  { role: "A free call", desc: "We talk about what you're working on and whether I'm the right person to help." },
+  { role: "A written proposal", desc: "Scope, timeline and a fixed price, so there are no surprises." },
+  { role: "The work", desc: "Done in your own cloud accounts and repositories, with regular updates along the way." },
+  { role: "Handover", desc: "Documentation and a walkthrough so your team is comfortable owning it. Ongoing support is optional." },
 ];
 
 const faqs = [
@@ -147,172 +163,177 @@ const schema = [
 
   <!-- ===================== HERO ===================== -->
   <section class="hero">
-    <div class="wrap">
-      <div class="hero__top rise">
-        <span class="live"><span class="nav__dot" aria-hidden="true"></span> taking new projects</span>
-        <span class="hero__sep">/</span>
-        <span>independent consultant · Mesa, AZ</span>
-        <span class="right">Phoenix metro & remote</span>
-      </div>
-
-      <div class="hero__grid">
-        <div>
-          <h1 class="hero__name rise" style="animation-delay:.06s">
-            <span class="ln">AI, Cloud &</span>
-            <span class="ln">DevOps Consulting</span>
-            <span class="ln ln--accent">in Phoenix.</span>
-          </h1>
-          <p class="hero__role rise" style="animation-delay:.16s">
-            <b>neel thomas thelly</b> <span class="tick">·</span> codeworks
-          </p>
-          <p class="hero__sub rise" style="animation-delay:.24s">
-            Hi, I'm Neel. Codeworks is my independent consulting practice in Mesa.
-            I help teams with their cloud setup, deployments, monitoring and AI
-            projects, working alongside your engineers.
-          </p>
-          <div class="btn-row rise" style="animation-delay:.32s">
-            <a class="btn btn--primary" href={booking} target="_blank" rel="noopener">Book a free call ↗</a>
-            <a class="btn" href="#services">Services</a>
-          </div>
+    <div class="wrap hero__grid">
+      <div>
+        <p class="eyebrow">Independent consultant · Mesa, Arizona</p>
+        <h1 class="hero__title">AI, cloud &amp; DevOps consulting <em>in Phoenix.</em></h1>
+        <p class="hero__sub">
+          Hi, I'm Neel. Codeworks is my independent consulting practice in Mesa.
+          I help teams with their cloud setup, deployments, monitoring and AI
+          projects, working alongside your engineers.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href={booking} target="_blank" rel="noopener">Book a free call</a>
+          <a class="btn" href="#services">See services</a>
         </div>
-
-        <aside class="panel rise" style="animation-delay:.4s" aria-label="Summary">
-          <div class="panel__head"><span class="nav__dot" aria-hidden="true" style="animation:none"></span> summary</div>
-          <div class="panel__row"><span class="panel__k">consultant</span><span class="panel__v">Neel Thomas Thelly</span></div>
-          <div class="panel__row"><span class="panel__k">practice</span><span class="panel__v">Codeworks</span></div>
-          <div class="panel__row"><span class="panel__k">based in</span><span class="panel__v">Mesa, AZ</span></div>
-          <div class="panel__row"><span class="panel__k">clouds</span><span class="panel__v">AWS · Azure</span></div>
-          <div class="panel__row"><span class="panel__k">work</span><span class="panel__v">projects · monthly</span></div>
-          <div class="panel__row"><span class="panel__k">first call</span><span class="panel__v panel__v--ok"><span class="led" aria-hidden="true"></span> free</span></div>
-          <div class="panel__live">
-            <div class="panel__live-head"><span>req latency · p50</span><span class="panel__ms" data-ms>— ms</span></div>
-            <svg class="spark" viewBox="0 0 240 48" preserveAspectRatio="none" aria-hidden="true">
-              <polyline class="spark__line" points=""></polyline>
-              <circle class="spark__dot" cx="240" cy="24" r="2.6"></circle>
-            </svg>
-          </div>
-        </aside>
+        <ul class="assure">
+          <li>You work directly with me</li>
+          <li>Fixed-price projects</li>
+          <li>First call is free</li>
+        </ul>
       </div>
+
+      <figure class="map">
+        <div class="map__head"><b>Service area</b><span>Phoenix metro, AZ</span></div>
+        <svg viewBox="130 112 520 348" role="img" aria-label="Map of the Phoenix metro: Phoenix, Scottsdale, Tempe, Chandler and Gilbert around a home base in Mesa.">
+          <defs>
+            <pattern id="mile" width={MILE} height={MILE} patternUnits="userSpaceOnUse" x={phoenix.x} y={phoenix.y}>
+              <path d={`M ${MILE} 0 L 0 0 0 ${MILE}`} class="map__grid" fill="none" />
+            </pattern>
+          </defs>
+          <rect x="130" y="112" width="520" height="348" fill="url(#mile)" />
+          {cities.map((c, i) => (
+            <line class="map__spoke" x1={mesa.x} y1={mesa.y} x2={c.x} y2={c.y} style={`--i:${i}`} />
+          ))}
+          {cities.map((c, i) => (
+            <g class="map__pin" style={`--i:${i}`}>
+              <circle class="map__dot" cx={c.x} cy={c.y} r="6" />
+              <text class="map__city" x={c.label === "left" ? c.x - 13 : c.label === "right" ? c.x + 13 : c.x} y={c.label === "below" ? c.y + 24 : c.y + 4.5} text-anchor={c.label === "left" ? "end" : c.label === "right" ? "start" : "middle"}>{c.name}</text>
+            </g>
+          ))}
+          <polygon class="map__base" points={mesaStar} />
+          <text class="map__base-label" x={mesa.x + 17} y={mesa.y + 1}>Mesa</text>
+          <text class="map__base-note" x={mesa.x + 17} y={mesa.y + 16}>based here</text>
+          <text class="map__legend" x="144" y="447">1 square = 1 mile of Valley street grid</text>
+          <text class="map__legend" x="636" y="132" text-anchor="end">N ↑</text>
+        </svg>
+        <figcaption class="map__foot"><span>On-site across the Valley</span><span>Remote across the US</span></figcaption>
+      </figure>
     </div>
   </section>
 
   <!-- ===================== SITUATIONS ===================== -->
-  <section class="sec" id="problems">
-    <div class="wrap">
-      <p class="eyebrow reveal">Where I can help</p>
-      <h2 class="sec__title reveal" data-d="1">Sound familiar?</h2>
-      <ul class="checks">
-        {situations.map((s, i) => (
-          <li class="reveal" data-d={String((i % 2) + 1)}>{s}</li>
-        ))}
+  <section class="sec sec--white" id="problems">
+    <div class="wrap split">
+      <div class="split__aside">
+        <p class="eyebrow">Where I can help</p>
+        <h2 class="sec__title">Sound familiar?</h2>
+        <p class="sec__intro">If any of these sound like your team, I'm happy to talk it through.</p>
+      </div>
+      <ul class="problems">
+        {situations.map((s) => <li class="reveal">{s}</li>)}
       </ul>
-      <p class="sec__intro reveal">If any of these sound like your team, I'm happy to talk it through.</p>
     </div>
   </section>
 
   <!-- ===================== SERVICES ===================== -->
   <section class="sec" id="services">
     <div class="wrap">
-      <p class="eyebrow reveal">Services</p>
-      <h2 class="sec__title reveal" data-d="1">How I can help</h2>
-      <p class="sec__intro reveal" data-d="2">
+      <p class="eyebrow">Services</p>
+      <h2 class="sec__title">How I can help</h2>
+      <p class="sec__intro">
         Most engagements start with a short review. Each project gets a written scope
         and a fixed price before any work begins.
       </p>
-      <div class="proj-grid">
+      <div class="svc-grid">
         {services.map((s, i) => (
-          <article class="proj reveal" data-d={String((i % 2) + 1)}>
-            <span class="proj__idx">{String(i + 1).padStart(2, "0")}</span>
-            <span class="proj__tag"><span class="led"></span> {s.tag}</span>
-            <h3 class="proj__title">{s.title}</h3>
-            <p class="proj__desc">{s.desc}</p>
-            <div class="stack">{s.stack.map((t) => <span class="chip">{t}</span>)}</div>
+          <article class={`svc reveal${i === 0 ? " svc--lead" : ""}`} data-d={String((i % 3) + 1)}>
+            <div class="svc__head">
+              <span class="svc__tag">{s.tag}</span>
+              <h3 class="svc__title">{s.title}</h3>
+            </div>
+            <div class="svc__body">
+              <p class="svc__desc">{s.desc}</p>
+              <div class="stack">{s.stack.map((t) => <span class="chip">{t}</span>)}</div>
+            </div>
           </article>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- ===================== BACKGROUND ===================== -->
-  <section class="sec" id="background">
-    <div class="wrap">
-      <p class="eyebrow reveal">Background</p>
-      <h2 class="sec__title reveal" data-d="1">About me</h2>
-      <p class="sec__intro reveal" data-d="2">
-        Before starting Codeworks, I spent about ten years in DevOps and SRE roles at
-        startups and larger tech companies. The full details are on my
-        <a href="/resume/">résumé</a>.
-      </p>
-      <div class="tl">
-        {background.map((r) => (
-          <div class="tl__item reveal">
-            <span class="tl__node" aria-hidden="true"></span>
-            <span class="tl__when">{r.when}</span>
-            <h3 class="tl__role">{r.role} · <span class="tl__co">{r.co}</span></h3>
-            <p class="tl__desc">{r.desc}</p>
-          </div>
-        ))}
+  <!-- ===================== ABOUT ===================== -->
+  <section class="sec sec--white" id="background">
+    <div class="wrap me">
+      <div>
+        <div class="me__photo"><img src="/images/avatar.jpg" alt="Neel Thomas Thelly" width="600" height="600" loading="lazy" /></div>
+        <p class="eyebrow">About me</p>
+        <h2 class="sec__title">A bit about me</h2>
+        <p class="sec__intro">
+          Before starting Codeworks, I spent about ten years in DevOps and SRE roles at
+          startups and larger tech companies. The full details are on my
+          <a href="/resume/">résumé</a>.
+        </p>
       </div>
-
-      <h3 class="sub__title reveal">Open-source side projects</h3>
-      <ul class="fit side">
-        {projects.map((p) => (
-          <li class="reveal"><a href={p.href} target="_blank" rel="noopener">{p.title} ↗</a> {p.desc}</li>
-        ))}
-      </ul>
+      <div>
+        <div class="tl">
+          {background.map((r) => (
+            <div class="tl__item">
+              <span class="tl__when">{r.when}</span>
+              <h3 class="tl__role">{r.role} · <span class="tl__co">{r.co}</span></h3>
+              <p class="tl__desc">{r.desc}</p>
+            </div>
+          ))}
+        </div>
+        <h3 class="sub__title">Open-source side projects</h3>
+        <ul class="side">
+          {projects.map((p) => (
+            <li><a href={p.href} target="_blank" rel="noopener">{p.title}</a> {p.desc}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   </section>
 
   <!-- ===================== FIT ===================== -->
   <section class="sec" id="fit">
     <div class="wrap">
-      <p class="eyebrow reveal">Who I work with</p>
-      <h2 class="sec__title reveal" data-d="1">Is this a good fit?</h2>
-      <div class="skills">
-        <div class="skillcard reveal" data-d="1">
-          <h3 class="skillcard__h">Usually a good fit</h3>
+      <p class="eyebrow">Who I work with</p>
+      <h2 class="sec__title">Is this a good fit?</h2>
+      <div class="fit-grid">
+        <div class="fitcard reveal">
+          <h3>Usually a good fit</h3>
           <ul class="fit">{goodFit.map((t) => <li>{t}</li>)}</ul>
         </div>
-        <div class="skillcard reveal" data-d="2">
-          <h3 class="skillcard__h">Probably not the right fit</h3>
+        <div class="fitcard fitcard--no reveal" data-d="1">
+          <h3>Probably not the right fit</h3>
           <ul class="fit fit--no">{notFit.map((t) => <li>{t}</li>)}</ul>
         </div>
-        {coverage.map((g, i) => (
-          <div class="skillcard reveal" data-d={String((i % 2) + 1)}>
-            <h3 class="skillcard__h">{g.h}</h3>
-            <div class="stack">{g.tags.map((t) => <span class="chip">{t}</span>)}</div>
-          </div>
-        ))}
+      </div>
+      <div class="industries">
+        <span class="industries__k">Industries</span>
+        {industries.map((t) => <span class="chip">{t}</span>)}
       </div>
     </div>
   </section>
 
   <!-- ===================== PROCESS ===================== -->
-  <section class="sec" id="process">
+  <section class="sec sec--white" id="process">
     <div class="wrap">
-      <p class="eyebrow reveal">How it works</p>
-      <h2 class="sec__title reveal" data-d="1">Working together</h2>
-      <div class="tl">
+      <p class="eyebrow">How it works</p>
+      <h2 class="sec__title">Working together</h2>
+      <ol class="steps">
         {steps.map((s) => (
-          <div class="tl__item reveal">
-            <span class="tl__node" aria-hidden="true"></span>
-            <span class="tl__when">{s.when}</span>
-            <h3 class="tl__role">{s.role}</h3>
-            <p class="tl__desc">{s.desc}</p>
-          </div>
+          <li class="step">
+            <h3 class="step__title">{s.role}</h3>
+            <p class="step__desc">{s.desc}</p>
+          </li>
         ))}
-      </div>
+      </ol>
     </div>
   </section>
 
   <!-- ===================== FAQ ===================== -->
   <section class="sec" id="faq">
-    <div class="wrap">
-      <p class="eyebrow reveal">FAQ</p>
-      <h2 class="sec__title reveal" data-d="1">Common questions</h2>
+    <div class="wrap split">
+      <div class="split__aside">
+        <p class="eyebrow">FAQ</p>
+        <h2 class="sec__title">Common questions</h2>
+        <p class="sec__intro">Something else on your mind? <a href="mailto:neeltom92@gmail.com">Send me an email</a>.</p>
+      </div>
       <div class="faq">
         {faqs.map((f) => (
-          <details class="faq__item reveal">
+          <details class="faq__item">
             <summary>{f.q}</summary>
             <p>{f.a}</p>
           </details>
@@ -323,13 +344,14 @@ const schema = [
 
   <!-- ===================== CLOSING ===================== -->
   <section class="cta-band" id="contact-cta">
-    <div class="wrap">
-      <p class="eyebrow reveal" style="justify-content:center">Get in touch</p>
-      <h2 class="reveal" data-d="1">Let's talk<br><span class="accent">about your project.</span></h2>
-      <p class="reveal" data-d="2">The first call is free and there's no obligation. If I'm not the right fit, I'll try to point you to someone who is.</p>
-      <div class="btn-row reveal" data-d="3">
-        <a class="btn btn--primary" href={booking} target="_blank" rel="noopener">Book a free call ↗</a>
-        <a class="btn" href="mailto:neeltom92@gmail.com">neeltom92@gmail.com</a>
+    <div class="wrap cta-band__in">
+      <h2>Let's talk about <em>your project.</em></h2>
+      <div>
+        <p>The first call is free and there's no obligation. If I'm not the right fit, I'll try to point you to someone who is.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href={booking} target="_blank" rel="noopener">Book a free call</a>
+          <a class="btn" href="mailto:neeltom92@gmail.com">Email me</a>
+        </div>
       </div>
     </div>
   </section>
