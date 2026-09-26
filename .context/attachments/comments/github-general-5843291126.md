@@ -10,15 +10,9 @@ Resolved: no
 ## Deploying neeltom92-github-io with &nbsp;<a href="https://pages.dev"><img alt="Cloudflare Pages" src="https://user-images.githubusercontent.com/23264/106598434-9e719e00-654f-11eb-9e59-6167043cfa01.png" width="16"></a> &nbsp;Cloudflare Pages
 
 <table><tr><td><strong>Latest commit:</strong> </td><td>
-<code>d1d7a7f</code>
+<code>83ae88e</code>
 </td></tr>
-<tr><td><strong>Status:</strong></td><td>&nbsp;✅&nbsp; Deploy successful!</td></tr>
-<tr><td><strong>Preview URL:</strong></td><td>
-<a href='https://887c89a2.neeltom92-github-io.pages.dev'>https://887c89a2.neeltom92-github-io.pages.dev</a>
-</td></tr>
-<tr><td><strong>Branch Preview URL:</strong></td><td>
-<a href='https://review-dakar-codebase.neeltom92-github-io.pages.dev'>https://review-dakar-codebase.neeltom92-github-io.pages.dev</a>
-</td></tr>
+<tr><td><strong>Status:</strong></td><td>⚡️&nbsp; Build in progress...</td></tr>
 </table>
 
-[View logs](https://dash.cloudflare.com/?to=/f979c528ebac58dda3ed4821cfe6b5f1/pages/view/neeltom92-github-io/887c89a2-8b20-4aa3-860b-f9468f91ea67)
+[View logs](https://dash.cloudflare.com/?to=/f979c528ebac58dda3ed4821cfe6b5f1/pages/view/neeltom92-github-io/6d510928-f0ed-448d-973f-ec0474307d0c)
