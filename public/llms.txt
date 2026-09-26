@@ -1,15 +1,20 @@
 # Codeworks
 
-> Codeworks is the AI infrastructure and SRE consulting practice of Neel Thomas Thelly, based in Mesa, Arizona. It helps companies across the Phoenix metro (Phoenix, Scottsdale, Tempe, Chandler, Gilbert, Mesa) and remotely across the US take AI from pilot to production on infrastructure that is observable, secure and affordable to run.
+> Codeworks is an AI, cloud and DevOps consulting company in Mesa, Arizona, founded by Neel Thomas Thelly. It serves businesses across the Phoenix metro (Phoenix, Scottsdale, Tempe, Chandler, Gilbert, Mesa) and remotely across the US. Projects are fixed-price with a written scope.
 
-Neel has 10+ years in DevOps and site reliability engineering, including owning observability for 125+ Kubernetes services supporting 100M+ users at Life360, $336K/yr in AWS savings at Careem (an Uber company), and building the full cloud and Kubernetes platform for the neobank Zolve. He maintains open-source AIOps tooling (SRE Copilot, Eagle-Eye, Claude Code Observability).
+Neel has 10+ years in DevOps and site reliability engineering: observability for 125+ Kubernetes services supporting 100M+ users at Life360, $336K/yr in AWS savings at Careem (an Uber company), the full cloud and Kubernetes platform for the neobank Zolve, and ~20% infrastructure savings at Ola. He maintains open-source AI tools for operations teams (SRE Copilot, Eagle-Eye, Claude Code Observability).
 
 ## Services
 
-- [AI Readiness Audit](https://codeworks.cloud/#services): ~2-week fixed-scope review of cloud, Kubernetes, data and security posture, ending in a prioritized roadmap.
-- [Pilot to Production](https://codeworks.cloud/#services): 4–8 week engagement to take one LLM or agent use case live with a model gateway, evals, tracing, cost guardrails, CI/CD and runbooks.
-- [AI for your on-call team](https://codeworks.cloud/#services): MCP servers and copilots wired into Datadog, Prometheus, Kubernetes and PagerDuty for faster incident triage.
-- [Fractional Platform / SRE Lead](https://codeworks.cloud/#services): ongoing senior platform and reliability leadership — SLOs, observability, Kubernetes, cloud cost and incident process.
+- [Infrastructure & AI Readiness Assessment](https://codeworks.cloud/#services): review of cloud, deployments, monitoring, security and costs, with a written report and prioritized fixes.
+- [AWS & Azure Cloud Consulting](https://codeworks.cloud/#services): cloud architecture, migrations and cost reduction.
+- [DevOps & CI/CD](https://codeworks.cloud/#services): automated build, test and deploy pipelines; infrastructure as code with Terraform.
+- [Kubernetes & Platform Engineering](https://codeworks.cloud/#services): EKS setup, upgrades, autoscaling and security policies.
+- [Monitoring & Reliability (SRE)](https://codeworks.cloud/#services): dashboards, alerting, on-call setup and incident reviews.
+- [AI Implementation](https://codeworks.cloud/#services): taking chatbot, agent and LLM pilots to production with private deployment, access control, cost tracking and quality checks.
+- [Fractional DevOps Lead](https://codeworks.cloud/#services): part-time senior DevOps/SRE engineer on a monthly basis.
+
+Not offered: help desk / office IT, website hosting, strategy-only AI engagements.
 
 ## Pages
 

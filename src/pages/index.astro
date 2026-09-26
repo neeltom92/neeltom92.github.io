@@ -3,90 +3,143 @@ import Base from "../layouts/Base.astro";
 
 const booking = "https://calendly.com/neeltom92/new-meeting";
 
-// Why AI pilots stall — the problem framing.
-const pains = [
-  { h: "No visibility", p: "The pilot has no metrics, traces or evals. When answers drift or latency spikes, nobody can say why." },
-  { h: "Unpredictable cost", p: "Token spend and GPU bills nobody forecast. The finance team asks for a number and there isn't one." },
-  { h: "Security sign-off", p: "Where does the data go? Who can call the model? Legal and compliance questions stop the rollout." },
-  { h: "Nobody to run it", p: "Phoenix is one of the US metros where AI adoption is outpacing local specialists. The people who built the demo aren't the people on call." },
+// "Sound familiar?" — the problems people actually call about.
+const symptoms = [
+  "Your AWS or Azure bill keeps going up and nobody can explain why.",
+  "Deployments are manual, slow or risky, so your team ships less often than it should.",
+  "You hear about outages from customers before your monitoring tells you.",
+  "Your AI pilot works in a demo, but nobody trusts it with real customers or real data.",
+  "The one person who understands your infrastructure is overloaded, or just left.",
+  "You need senior DevOps help but can't justify a full-time hire yet.",
 ];
 
 const services = [
   {
-    tag: "fixed scope · ~2 weeks",
-    title: "AI Readiness Audit",
-    desc: "A hands-on review of your cloud, Kubernetes, data and security posture against the AI work you want to ship. You get a prioritized roadmap: what to fix first, what to buy vs build, and what it will take to run.",
-    stack: ["Architecture review", "Risk register", "Cost model", "Roadmap"],
+    tag: "start here",
+    title: "Infrastructure & AI Readiness Assessment",
+    desc: "A review of your cloud setup, deployments, monitoring, security and costs. You get a written report with what's working, what's risky, and a prioritized list of fixes.",
+    stack: ["Written report", "Risk list", "Cost review", "Action plan"],
   },
   {
-    tag: "fixed scope · 4–8 weeks",
-    title: "Pilot → Production",
-    desc: "Take one LLM or agent use case live, properly: model gateway, evals, tracing, cost guardrails, CI/CD and on-call runbooks — in your cloud accounts, as infrastructure-as-code.",
-    stack: ["LLM gateway", "Evals", "OpenTelemetry", "Terraform", "CI/CD"],
+    tag: "cloud",
+    title: "AWS & Azure Cloud Consulting",
+    desc: "Cloud architecture, migrations and cost reduction. We find the waste in your bill and set up accounts, networking and access the right way.",
+    stack: ["AWS", "Azure", "Cost reduction", "Migrations"],
   },
   {
-    tag: "fixed scope · AIOps",
-    title: "AI for your on-call team",
-    desc: "MCP servers and copilots wired into the tools your engineers already use — Datadog, Prometheus, Kubernetes, PagerDuty — so incidents get triaged in minutes, not tab-hopping hours.",
-    stack: ["MCP", "Datadog", "Prometheus", "PagerDuty", "Kubernetes"],
+    tag: "devops",
+    title: "DevOps & CI/CD",
+    desc: "Automated build, test and deploy pipelines so releases are routine. Infrastructure written as code, so every environment can be rebuilt and reviewed.",
+    stack: ["GitHub Actions", "Terraform", "ArgoCD", "GitOps"],
   },
   {
-    tag: "monthly · ongoing",
-    title: "Fractional Platform / SRE Lead",
-    desc: "Senior platform and reliability leadership without a full-time hire: SLOs, observability, Kubernetes, cloud cost and incident process — and mentoring the team that will own it.",
-    stack: ["SLOs", "Observability", "EKS", "FinOps", "Incident response"],
+    tag: "kubernetes",
+    title: "Kubernetes & Platform Engineering",
+    desc: "New EKS clusters, upgrades, autoscaling and security policies. Or an honest answer that you don't need Kubernetes yet.",
+    stack: ["EKS", "Helm", "Karpenter", "Istio"],
+  },
+  {
+    tag: "sre",
+    title: "Monitoring & Reliability (SRE)",
+    desc: "Dashboards and alerts that catch problems before customers do. On-call setup, uptime targets and incident reviews that stop repeat outages.",
+    stack: ["Prometheus", "Grafana", "Datadog", "OpenTelemetry"],
+  },
+  {
+    tag: "ai",
+    title: "AI Implementation",
+    desc: "Take a chatbot, agent or LLM pilot live safely: private deployment, access control, cost tracking and quality checks. We also build AI assistants that help your engineers debug incidents faster.",
+    stack: ["LLMs", "RAG", "MCP", "Claude", "AWS Bedrock"],
+  },
+  {
+    tag: "ongoing",
+    title: "Fractional DevOps Lead",
+    desc: "A senior DevOps and SRE engineer on your team part-time, on a monthly basis. Owns the roadmap, reviews changes, handles escalations and mentors your developers.",
+    stack: ["Monthly", "Part-time", "No long contract"],
   },
 ];
 
-const steps = [
-  { when: "Step 01", role: "Intro call", desc: "Free. Tell me what you're trying to ship and where it's stuck. You leave with a clear next step either way." },
-  { when: "Step 02", role: "Written scope", desc: "Fixed scope, deliverables and timeline in writing — no open-ended hourly meter." },
-  { when: "Step 03", role: "Build with your team", desc: "Work happens in your cloud accounts and your repos, as code, alongside your engineers." },
-  { when: "Step 04", role: "Hand-off", desc: "Dashboards, runbooks and docs. Your team owns it — no lock-in, no black boxes." },
-];
-
-// Track record — facts from the résumé.
-const record = [
-  { h: "Life360", p: "Owned observability for 125+ Kubernetes services supporting 100M+ users — Vector at 6TB+/day, Prometheus on EKS, OpenTelemetry and eBPF service mapping." },
-  { h: "Careem · an Uber company", p: "AWS cost optimizations saving $336K/yr; migrated production from Elastic Beanstalk to EKS." },
-  { h: "Zolve", p: "Built the entire cloud + Kubernetes platform for a $210M neobank — multi-region EKS, GitOps, CI/CD and observability." },
-  { h: "Ola Cabs", p: "Large-scale CI/CD on Jenkins + Mesos; migrated payment workloads AWS → Azure for ~20% infra savings." },
+// Real results from Neel's previous roles (not Codeworks clients).
+const results = [
+  {
+    co: "Careem · an Uber company",
+    metric: "$336K / year saved",
+    challenge: "Growing AWS costs for the Careem Pay payments business, with production running on Elastic Beanstalk.",
+    work: "Cost optimization across AWS and a migration of production to Kubernetes (EKS).",
+  },
+  {
+    co: "Zolve · $210M neobank",
+    metric: "Platform built from zero",
+    challenge: "A new US fintech with no cloud platform and a launch to hit.",
+    work: "Built the full AWS and Kubernetes platform: 20+ services on multi-region EKS, CI/CD, GitOps and monitoring.",
+  },
+  {
+    co: "Life360 · 100M+ users",
+    metric: "125+ services monitored",
+    challenge: "Monitoring and logging for a consumer app used by more than 100 million people.",
+    work: "Ran the observability stack (6TB+ of logs a day, Prometheus on EKS, OpenTelemetry) and built internal AI tools adopted by 10+ teams.",
+  },
+  {
+    co: "Ola Cabs",
+    metric: "~20% infra savings",
+    challenge: "High infrastructure costs for payment workloads.",
+    work: "Migrated payment workloads from AWS to Azure and ran large-scale CI/CD.",
+  },
 ];
 
 const projects = [
   {
-    tag: "open source · observability", href: "https://github.com/neeltom92/claude-code-observability",
-    title: "Claude Code Observability",
-    desc: "Self-hosted Grafana + OTEL stack for Claude Code — cost, token usage and per-skill / per-tool tracing. Answers the question leadership actually asks: which AI tools get used, and what they cost. One <code>make up</code>, local only.",
-    stack: ["Grafana", "OpenTelemetry", "Prometheus", "Loki"],
-  },
-  {
-    tag: "open source · MCP server · 14 ★", href: "https://github.com/neeltom92/sre-copilot",
+    tag: "open source · 14 ★", href: "https://github.com/neeltom92/sre-copilot",
     title: "SRE Copilot",
-    desc: "AI assistant for root-cause analysis. Ask in plain language; it queries metrics, logs and traces across Datadog APM, Kubernetes and PagerDuty.",
+    desc: "An AI assistant for incident debugging. Engineers ask questions in plain English and it pulls metrics, logs and traces from Datadog, Kubernetes and PagerDuty.",
     stack: ["Claude", "LangGraph", "Datadog", "MCP"],
   },
   {
-    tag: "open source · MCP server · 10+ ★", href: "https://github.com/neeltom92/eagle-eye-mcp",
+    tag: "open source · 10+ ★", href: "https://github.com/neeltom92/eagle-eye-mcp",
     title: "Eagle-Eye",
-    desc: "A single pane of glass for on-call engineers — metrics, logs, alerts and debugging context in one place, so responders stop tab-hopping during incidents.",
+    desc: "One screen for on-call engineers with metrics, logs, alerts and debugging context, so nobody has to jump between ten tabs during an outage.",
     stack: ["Observability", "MCP", "Incident response"],
+  },
+  {
+    tag: "open source · new", href: "https://github.com/neeltom92/claude-code-observability",
+    title: "Claude Code Observability",
+    desc: "Self-hosted dashboards that show how a team uses AI coding tools: cost, token usage and which tools get used most. Runs locally with one <code>make up</code>.",
+    stack: ["Grafana", "OpenTelemetry", "Prometheus", "Loki"],
   },
 ];
 
+const goodFit = [
+  "Startups and mid-size companies in the Phoenix area running on AWS or Azure",
+  "Software teams with developers but no dedicated DevOps or SRE engineer",
+  "Companies with an AI pilot that needs to go live safely",
+  "Finance, healthcare and other regulated teams that need work done properly and documented",
+];
+
+const notFit = [
+  "Help desk, laptops, email or office IT. A managed IT provider is the right call there.",
+  "Website hosting or WordPress sites",
+  "AI strategy slide decks with no build work behind them",
+];
+
 const coverage = [
-  { h: "Service area", tags: ["Phoenix", "Scottsdale", "Tempe", "Chandler", "Gilbert", "Mesa", "Remote — anywhere in the US"] },
+  { h: "Service area", tags: ["Phoenix", "Scottsdale", "Tempe", "Chandler", "Gilbert", "Mesa", "Remote across the US"] },
   { h: "Industries", tags: ["Financial services & fintech", "Healthcare", "Semiconductor & manufacturing", "Logistics", "SaaS & startups"] },
-  { h: "Cloud & Kubernetes", tags: ["AWS", "Azure", "EKS", "Terraform", "Helm", "ArgoCD", "Karpenter", "Istio"] },
-  { h: "AI & observability", tags: ["MCP", "Claude", "LangGraph", "RAG", "Langfuse", "OpenTelemetry", "Prometheus", "Datadog"] },
+];
+
+const steps = [
+  { when: "Step 01", role: "Free consultation", desc: "Book a time on the calendar. We talk through what's broken or what you want to build. No sales pitch." },
+  { when: "Step 02", role: "Written proposal", desc: "A fixed price, clear scope and timeline in writing, usually within a few days." },
+  { when: "Step 03", role: "The work", desc: "Done in your cloud accounts and code repositories, with a weekly update on progress." },
+  { when: "Step 04", role: "Handover", desc: "Documentation, runbooks and a walkthrough for your team. Ongoing support is optional, not required." },
 ];
 
 const faqs = [
-  { q: "Do you work on-site?", a: "Yes. I'm based in Mesa and work on-site across the Phoenix metro when it helps — kickoffs, workshops, incident reviews. Everything else is remote." },
-  { q: "We're a small team, not a big Kubernetes shop. Is this for us?", a: "Yes. The goal is the smallest setup that's reliable. Sometimes the right answer is a managed service and a good dashboard, not a platform." },
-  { q: "Which clouds and models do you work with?", a: "Mostly AWS and Azure. Model-agnostic — hosted APIs like Claude, or self-hosted open-weight models when data has to stay in your environment." },
-  { q: "What happens to our data?", a: "Work happens in your accounts, under your access controls. Nothing is copied to my systems, and NDAs are fine." },
-  { q: "How is pricing handled?", a: "Every engagement is fixed-scope and quoted in writing after the intro call, so you know the cost before any work starts." },
+  { q: "Do you work on-site?", a: "Yes. Codeworks is based in Mesa and can be on-site anywhere in the Phoenix metro for kickoffs, workshops and planning sessions. Day-to-day work is remote." },
+  { q: "Who will actually do the work?", a: "Neel Thomas Thelly, the founder. You talk directly to the engineer doing the work, not an account manager." },
+  { q: "We're a small company. Is this for us?", a: "Yes. Small teams often get the most out of it. The goal is the simplest setup that's reliable, and sometimes that means a managed service instead of Kubernetes." },
+  { q: "Do you replace our IT provider?", a: "No. Codeworks handles cloud infrastructure, DevOps and AI systems for your software. Your managed IT provider keeps handling laptops, email and office IT. The two work well side by side." },
+  { q: "Which clouds and AI models do you work with?", a: "Mainly AWS and Azure. For AI, hosted models like Claude and AWS Bedrock, or self-hosted open-weight models when your data has to stay in your own environment." },
+  { q: "What happens to our data?", a: "All work happens in your accounts, under your access controls. Nothing is copied to outside systems, and we're happy to sign an NDA." },
+  { q: "How does pricing work?", a: "Projects are fixed-price, quoted in writing after the free consultation. The Fractional DevOps Lead is a monthly fee. No long-term contracts." },
 ];
 
 const site = Astro.site!.href;
@@ -105,7 +158,6 @@ const schema = [
     "@type": "Service",
     name: s.title,
     description: s.desc,
-    serviceType: "AI infrastructure and SRE consulting",
     provider: { "@id": `${site}#business` },
     areaServed: { "@type": "State", name: "Arizona" },
     url: `${site}#services`,
@@ -119,42 +171,41 @@ const schema = [
   <section class="hero">
     <div class="wrap">
       <div class="hero__top rise">
-        <span class="live"><span class="nav__dot" aria-hidden="true"></span> booking new engagements</span>
+        <span class="live"><span class="nav__dot" aria-hidden="true"></span> taking new projects</span>
         <span class="hero__sep">/</span>
-        <span>AI infrastructure & SRE consulting · Phoenix, AZ</span>
-        <span class="right">Mesa, AZ · serving the Valley</span>
+        <span>Mesa, AZ</span>
+        <span class="right">Phoenix · Scottsdale · Tempe · Chandler · Gilbert</span>
       </div>
 
       <div class="hero__grid">
         <div>
           <h1 class="hero__name rise" style="animation-delay:.06s">
-            <span class="ln">AI that ships.</span>
-            <span class="ln">Systems that</span>
-            <span class="ln ln--accent">stay up.</span>
+            <span class="ln">AI, Cloud &</span>
+            <span class="ln">DevOps Consulting</span>
+            <span class="ln ln--accent">in Phoenix.</span>
           </h1>
           <p class="hero__role rise" style="animation-delay:.16s">
-            <b>codeworks</b> <span class="tick">·</span> ai infra <span class="tick">·</span> sre <span class="tick">·</span> aiops
+            <b>fixed-price projects</b> <span class="tick">·</span> senior engineer only <span class="tick">·</span> no long contracts
           </p>
           <p class="hero__sub rise" style="animation-delay:.24s">
-            I help companies across Phoenix and Arizona take AI from pilot to production — on infrastructure
-            that's observable, secure and affordable to run. Hands-on engineering from a
-            senior SRE with 10+ years keeping large-scale systems up.
+            Codeworks sets up, fixes and runs the infrastructure behind your software.
+            Cloud, Kubernetes, deployments, monitoring, and AI systems your team can
+            trust with real customers.
           </p>
           <div class="btn-row rise" style="animation-delay:.32s">
-            <a class="btn btn--primary" href={booking} target="_blank" rel="noopener">Book an intro call ↗</a>
-            <a class="btn" href="#services">See services</a>
-            <a class="btn" href="/resume/">Résumé</a>
+            <a class="btn btn--primary" href={booking} target="_blank" rel="noopener">Book a free consultation ↗</a>
+            <a class="btn" href="#services">View services</a>
           </div>
         </div>
 
-        <aside class="panel rise" style="animation-delay:.4s" aria-label="practice summary">
-          <div class="panel__head"><span class="nav__dot" aria-hidden="true" style="animation:none"></span> practice summary</div>
-          <div class="panel__row"><span class="panel__k">status</span><span class="panel__v panel__v--ok"><span class="led" aria-hidden="true"></span> booking</span></div>
-          <div class="panel__row"><span class="panel__k">based</span><span class="panel__v">Mesa, AZ</span></div>
+        <aside class="panel rise" style="animation-delay:.4s" aria-label="Codeworks at a glance">
+          <div class="panel__head"><span class="nav__dot" aria-hidden="true" style="animation:none"></span> at a glance</div>
+          <div class="panel__row"><span class="panel__k">availability</span><span class="panel__v panel__v--ok"><span class="led" aria-hidden="true"></span> open</span></div>
+          <div class="panel__row"><span class="panel__k">based in</span><span class="panel__v">Mesa, AZ</span></div>
           <div class="panel__row"><span class="panel__k">experience</span><span class="panel__v">10+ years</span></div>
-          <div class="panel__row"><span class="panel__k">scale</span><span class="panel__v">100M+ users</span></div>
-          <div class="panel__row"><span class="panel__k">engagements</span><span class="panel__v">fixed scope</span></div>
-          <div class="panel__row"><span class="panel__k">reply</span><span class="panel__v">&lt; 1 business day</span></div>
+          <div class="panel__row"><span class="panel__k">largest system</span><span class="panel__v">100M+ users</span></div>
+          <div class="panel__row"><span class="panel__k">cloud savings</span><span class="panel__v">$336K / yr</span></div>
+          <div class="panel__row"><span class="panel__k">reply time</span><span class="panel__v">1 business day</span></div>
           <div class="panel__live">
             <div class="panel__live-head"><span>req latency · p50</span><span class="panel__ms" data-ms>— ms</span></div>
             <svg class="spark" viewBox="0 0 240 48" preserveAspectRatio="none" aria-hidden="true">
@@ -167,34 +218,28 @@ const schema = [
     </div>
   </section>
 
-  <!-- ===================== PROBLEM ===================== -->
-  <section class="sec" id="problem">
+  <!-- ===================== SOUND FAMILIAR ===================== -->
+  <section class="sec" id="problems">
     <div class="wrap">
-      <p class="eyebrow reveal">Incident report · why AI pilots stall</p>
-      <h2 class="sec__title reveal" data-d="1">The demo worked. Production didn't.</h2>
-      <p class="sec__intro reveal" data-d="2">
-        Most AI projects don't fail on the model. They fail on everything around it —
-        the infrastructure, monitoring, cost controls and people needed to run it.
-      </p>
-      <div class="skills">
-        {pains.map((c, i) => (
-          <div class="skillcard reveal" data-d={String((i % 2) + 1)}>
-            <h3 class="skillcard__h">{c.h}</h3>
-            <p class="skillcard__p">{c.p}</p>
-          </div>
+      <p class="eyebrow reveal">Common problems</p>
+      <h2 class="sec__title reveal" data-d="1">Sound familiar?</h2>
+      <ul class="checks">
+        {symptoms.map((s, i) => (
+          <li class="reveal" data-d={String((i % 2) + 1)}>{s}</li>
         ))}
-      </div>
+      </ul>
+      <p class="sec__intro reveal">If two or more of these apply, a free consultation is worth your time.</p>
     </div>
   </section>
 
   <!-- ===================== SERVICES ===================== -->
   <section class="sec" id="services">
     <div class="wrap">
-      <p class="eyebrow reveal">Services · runbook</p>
-      <h2 class="sec__title reveal" data-d="1">Ways to work together</h2>
+      <p class="eyebrow reveal">Services</p>
+      <h2 class="sec__title reveal" data-d="1">What Codeworks does</h2>
       <p class="sec__intro reveal" data-d="2">
-        Fixed-scope engagements with clear deliverables. Start small with an audit,
-        or bring me in to ship one use case end to end.
+        Most clients start with an assessment. Every project has a fixed price and a
+        written scope before any work begins.
       </p>
       <div class="proj-grid">
         {services.map((s, i) => (
@@ -210,11 +255,70 @@ const schema = [
     </div>
   </section>
 
+  <!-- ===================== RESULTS ===================== -->
+  <section class="sec" id="work">
+    <div class="wrap">
+      <p class="eyebrow reveal">Results</p>
+      <h2 class="sec__title reveal" data-d="1">Past work, real numbers</h2>
+      <p class="sec__intro reveal" data-d="2">
+        Selected results from Neel's 10+ years running production systems at
+        companies from early-stage fintech to apps with 100M+ users.
+      </p>
+      <div class="proj-grid">
+        {results.map((r, i) => (
+          <article class="proj reveal" data-d={String((i % 2) + 1)}>
+            <span class="proj__tag"><span class="led"></span> {r.co}</span>
+            <h3 class="proj__title">{r.metric}</h3>
+            <p class="proj__desc"><b>Challenge.</b> {r.challenge}</p>
+            <p class="proj__desc"><b>What was done.</b> {r.work}</p>
+          </article>
+        ))}
+      </div>
+
+      <h3 class="sub__title reveal">AI tools built in the open</h3>
+      <div class="proj-grid proj-grid--tight">
+        {projects.map((p, i) => (
+          <article class="proj reveal" data-d={String((i % 2) + 1)}>
+            <span class="proj__tag proj__tag--oss"><span class="led"></span> {p.tag}</span>
+            <h3 class="proj__title">{p.title}</h3>
+            <p class="proj__desc" set:html={p.desc}></p>
+            <div class="stack">{p.stack.map((s) => <span class="chip">{s}</span>)}</div>
+            <a class="proj__link" href={p.href} target="_blank" rel="noopener" aria-label={`${p.title} on GitHub`}>↗</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FIT ===================== -->
+  <section class="sec" id="fit">
+    <div class="wrap">
+      <p class="eyebrow reveal">Who we work with</p>
+      <h2 class="sec__title reveal" data-d="1">Built for Arizona software teams</h2>
+      <div class="skills">
+        <div class="skillcard reveal" data-d="1">
+          <h3 class="skillcard__h">A good fit</h3>
+          <ul class="fit">{goodFit.map((t) => <li>{t}</li>)}</ul>
+        </div>
+        <div class="skillcard reveal" data-d="2">
+          <h3 class="skillcard__h">Not a fit</h3>
+          <ul class="fit fit--no">{notFit.map((t) => <li>{t}</li>)}</ul>
+        </div>
+        {coverage.map((g, i) => (
+          <div class="skillcard reveal" data-d={String((i % 2) + 1)}>
+            <h3 class="skillcard__h">{g.h}</h3>
+            <div class="stack">{g.tags.map((t) => <span class="chip">{t}</span>)}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== PROCESS ===================== -->
   <section class="sec" id="process">
     <div class="wrap">
-      <p class="eyebrow reveal">Process · deploy pipeline</p>
-      <h2 class="sec__title reveal" data-d="1">How it works</h2>
+      <p class="eyebrow reveal">How it works</p>
+      <h2 class="sec__title reveal" data-d="1">Four simple steps</h2>
       <div class="tl">
         {steps.map((s) => (
           <div class="tl__item reveal">
@@ -228,59 +332,11 @@ const schema = [
     </div>
   </section>
 
-  <!-- ===================== PROOF ===================== -->
-  <section class="sec" id="work">
-    <div class="wrap">
-      <p class="eyebrow reveal">Track record · uptime history</p>
-      <h2 class="sec__title reveal" data-d="1">Proven at scale. Built in the open.</h2>
-      <p class="sec__intro reveal" data-d="2">
-        A decade running production for companies from 100M-user consumer apps to
-        greenfield fintech — and open-source AIOps tooling you can inspect today.
-      </p>
-      <div class="skills">
-        {record.map((c, i) => (
-          <div class="skillcard reveal" data-d={String((i % 2) + 1)}>
-            <h3 class="skillcard__h">{c.h}</h3>
-            <p class="skillcard__p">{c.p}</p>
-          </div>
-        ))}
-      </div>
-      <div class="proj-grid">
-        {projects.map((p, i) => (
-          <article class="proj reveal" data-d={String((i % 2) + 1)}>
-            <span class="proj__idx">{String(i + 1).padStart(2, "0")}</span>
-            <span class="proj__tag proj__tag--oss"><span class="led"></span> {p.tag}</span>
-            <h3 class="proj__title">{p.title}</h3>
-            <p class="proj__desc" set:html={p.desc}></p>
-            <div class="stack">{p.stack.map((s) => <span class="chip">{s}</span>)}</div>
-            <a class="proj__link" href={p.href} target="_blank" rel="noopener" aria-label={`${p.title} on GitHub`}>↗</a>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== COVERAGE ===================== -->
-  <section class="sec" id="coverage">
-    <div class="wrap">
-      <p class="eyebrow reveal">Coverage · Valley of the Sun</p>
-      <h2 class="sec__title reveal" data-d="1">Local to the Valley. Fluent in your stack.</h2>
-      <div class="skills">
-        {coverage.map((g, i) => (
-          <div class="skillcard reveal" data-d={String((i % 2) + 1)}>
-            <h3 class="skillcard__h">{g.h}</h3>
-            <div class="stack">{g.tags.map((t) => <span class="chip">{t}</span>)}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <!-- ===================== FAQ ===================== -->
   <section class="sec" id="faq">
     <div class="wrap">
-      <p class="eyebrow reveal">FAQ · known issues</p>
-      <h2 class="sec__title reveal" data-d="1">Questions</h2>
+      <p class="eyebrow reveal">FAQ</p>
+      <h2 class="sec__title reveal" data-d="1">Common questions</h2>
       <div class="faq">
         {faqs.map((f) => (
           <details class="faq__item reveal">
@@ -296,10 +352,10 @@ const schema = [
   <section class="cta-band" id="contact-cta">
     <div class="wrap">
       <p class="eyebrow reveal" style="justify-content:center">Get in touch</p>
-      <h2 class="reveal" data-d="1">AI in production —<br><span class="accent">without the 3am pages.</span></h2>
-      <p class="reveal" data-d="2">Tell me what you're trying to ship. The first call is free, and you'll leave with a clear next step either way.</p>
+      <h2 class="reveal" data-d="1">Infrastructure problems?<br><span class="accent">Let's fix them.</span></h2>
+      <p class="reveal" data-d="2">Free consultation, no sales pitch. Tell us what's broken or what you want to build, and you'll get an honest answer on whether Codeworks can help.</p>
       <div class="btn-row reveal" data-d="3">
-        <a class="btn btn--primary" href={booking} target="_blank" rel="noopener">Book an intro call ↗</a>
+        <a class="btn btn--primary" href={booking} target="_blank" rel="noopener">Book a free consultation ↗</a>
         <a class="btn" href="mailto:neeltom92@gmail.com">neeltom92@gmail.com</a>
       </div>
     </div>

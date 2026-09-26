@@ -3,9 +3,9 @@ import "../styles/global.css";
 
 const SITE_TITLE = "Codeworks";
 const DEFAULT_DESC =
-  "Codeworks — AI infrastructure and SRE consulting in Mesa, Arizona. Neel Thomas Thelly helps Phoenix-area companies take AI from pilot to production: Kubernetes, observability, LLM platforms, MCP and AIOps.";
+  "Codeworks is an AI, cloud and DevOps consulting company in Mesa, Arizona serving Phoenix, Scottsdale, Tempe, Chandler and Gilbert. AWS and Azure consulting, CI/CD, Kubernetes, monitoring and AI implementation. Fixed-price projects.";
 const KEYWORDS =
-  "AI consultant Phoenix, AI infrastructure consulting Arizona, DevOps consultant Phoenix, SRE consulting, AIOps, MLOps, LLMOps, platform engineering, Kubernetes consulting, AWS consulting, observability, MCP, LLM agents, Scottsdale, Tempe, Chandler, Gilbert, Mesa, Neel Thomas Thelly, Codeworks";
+  "DevOps consulting Phoenix, AI consultant Phoenix, cloud consulting Phoenix, AWS consultant Arizona, Azure consultant Phoenix, Kubernetes consultant Phoenix, AI infrastructure consulting Arizona, SRE consulting, AIOps, MLOps, LLMOps, platform engineering, Kubernetes consulting, AWS consulting, observability, MCP, LLM agents, Scottsdale, Tempe, Chandler, Gilbert, Mesa, Neel Thomas Thelly, Codeworks";
 const BOOKING = "https://calendly.com/neeltom92/new-meeting";
 const CITIES = ["Phoenix", "Scottsdale", "Tempe", "Chandler", "Gilbert", "Mesa"];
 
@@ -18,7 +18,7 @@ interface Props {
 }
 
 const { title, description = DEFAULT_DESC, isHome = false, schema = [], noindex = false } = Astro.props;
-const pageTitle = title ?? `${SITE_TITLE} — AI Infrastructure & SRE Consulting · Phoenix, AZ`;
+const pageTitle = title ?? `${SITE_TITLE} | AI, Cloud & DevOps Consulting in Phoenix, AZ`;
 
 const ogImage = new URL("/images/og.png", Astro.site).href;
 const photo = new URL("/images/N90.jpg", Astro.site).href;
@@ -121,7 +121,7 @@ const year = new Date().getFullYear();
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Codeworks — AI infrastructure and SRE consulting, Phoenix and Mesa, Arizona" />
+    <meta property="og:image:alt" content="Codeworks: AI, cloud and DevOps consulting in Phoenix, Arizona" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@NEELTHOMAS11" />
     <meta name="twitter:title" content={pageTitle} />
@@ -173,7 +173,7 @@ const year = new Date().getFullYear();
       <div class="foot__in">
         <div class="foot__brand">
           <span class="foot__big">CODEWORKS</span>
-          <span class="foot__tag">// AI infrastructure & SRE consulting · Neel Thomas Thelly · Mesa, AZ</span>
+          <span class="foot__tag">// AI, cloud & DevOps consulting · Mesa, AZ · founded by Neel Thomas Thelly</span>
         </div>
         <div class="foot__grid">
           <div class="foot__col">
@@ -187,8 +187,8 @@ const year = new Date().getFullYear();
             <span class="foot__k">direct</span>
             <a href={BOOKING} target="_blank" rel="noopener">Book a call ↗</a>
             <a href="mailto:neeltom92@gmail.com">neeltom92@gmail.com</a>
-            <span class="foot__loc">Mesa, AZ · serving the Valley</span>
-            <span class="foot__loc"><span class="foot__live"></span> booking new engagements</span>
+            <span class="foot__loc">Mesa, AZ · serving the Phoenix metro</span>
+            <span class="foot__loc"><span class="foot__live"></span> taking new projects</span>
           </div>
         </div>
         <div class="foot__base">

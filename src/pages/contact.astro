@@ -4,10 +4,10 @@ import Base from "../layouts/Base.astro";
 const resumeView = "/resume/";
 const booking = "https://calendly.com/neeltom92/new-meeting";
 const description =
-  "Contact Codeworks — book a free intro call about AI infrastructure, SRE or platform work. Based in Mesa, AZ, serving the Phoenix metro.";
+  "Contact Codeworks for a free consultation on AI, cloud and DevOps projects. Based in Mesa, AZ, serving the Phoenix metro.";
 
 const channels = [
-  { k: "Book a call", v: "calendly · free intro", href: booking, ext: true },
+  { k: "Book a call", v: "free consultation", href: booking, ext: true },
   { k: "Email", v: "neeltom92@gmail.com", href: "mailto:neeltom92@gmail.com", ext: false },
   { k: "LinkedIn", v: "in/neel-thomas-thelly", href: "https://www.linkedin.com/in/neel-thomas-thelly-646a27131/", ext: true },
   { k: "GitHub", v: "@neeltom92", href: "https://github.com/neeltom92", ext: true },
@@ -23,17 +23,17 @@ const channels = [
       <div class="contact__grid">
         <div>
           <p class="eyebrow">Contact · channels</p>
-          <h1 class="contact__title">Tell me what<br>you're shipping</h1>
+          <h1 class="contact__title">Let's talk about<br>your project</h1>
           <p class="sec__intro">
-            An AI rollout that's stuck in pilot, a platform that keeps paging your team,
-            or a cloud bill nobody can explain — book a free intro call or send an email.
-            I'm based in Mesa and work on-site across the Phoenix metro.
+            Book a free consultation or send an email. Tell us what's broken or what you
+            want to build, and you'll get an honest answer on whether Codeworks can help.
+            Based in Mesa, with on-site visits across the Phoenix metro.
           </p>
-          <p class="contact__live"><span class="nav__dot" aria-hidden="true"></span> booking new engagements · usually replies within a day · Mesa, AZ</p>
+          <p class="contact__live"><span class="nav__dot" aria-hidden="true"></span> taking new projects · replies within 1 business day · Mesa, AZ</p>
 
           <div class="btn-row" style="margin-top:2rem">
-            <a class="btn btn--primary" href={booking} target="_blank" rel="noopener">Book an intro call ↗</a>
-            <a class="btn" href="mailto:neeltom92@gmail.com">Email me</a>
+            <a class="btn btn--primary" href={booking} target="_blank" rel="noopener">Book a free consultation ↗</a>
+            <a class="btn" href="mailto:neeltom92@gmail.com">Email</a>
             <a class="btn" href="https://www.linkedin.com/in/neel-thomas-thelly-646a27131/" target="_blank" rel="noopener">LinkedIn ↗</a>
           </div>
         </div>
