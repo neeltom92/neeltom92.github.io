@@ -301,7 +301,10 @@ body > * { position: relative; z-index: 2; }
 .proj__desc b { color: var(--ink); font-weight: 700; }
 .proj__desc + .proj__desc { margin-top: -0.6rem; }
 .sub__title { font-weight: 700; font-size: clamp(1.3rem, 2.6vw, 1.7rem); letter-spacing: -0.01em; margin-top: 3.2rem; }
-.proj-grid--tight { margin-top: 1.4rem; }
+.side { margin-top: 1.2rem; max-width: 52rem; }
+.side a { color: var(--ink); font-weight: 700; margin-right: 0.35rem; }
+.side a:hover { color: var(--accent-ink); }
+.sec__intro a { border-bottom: 1px solid var(--accent-dim); }
 
 /* --- FAQ ------------------------------------------------------------------- */
 .faq { margin-top: 2.6rem; max-width: 52rem; border-top: 1px solid var(--line); }

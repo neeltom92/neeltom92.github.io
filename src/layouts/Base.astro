@@ -3,7 +3,7 @@ import "../styles/global.css";
 
 const SITE_TITLE = "Codeworks";
 const DEFAULT_DESC =
-  "Codeworks is an AI, cloud and DevOps consulting company in Mesa, Arizona serving Phoenix, Scottsdale, Tempe, Chandler and Gilbert. AWS and Azure consulting, CI/CD, Kubernetes, monitoring and AI implementation. Fixed-price projects.";
+  "Neel Thomas Thelly is an independent AI, cloud and DevOps consultant in Mesa, Arizona. Through his practice, Codeworks, he works with teams across Phoenix, Scottsdale, Tempe, Chandler and Gilbert on AWS, Azure, CI/CD, Kubernetes, monitoring and AI projects.";
 const KEYWORDS =
   "DevOps consulting Phoenix, AI consultant Phoenix, cloud consulting Phoenix, AWS consultant Arizona, Azure consultant Phoenix, Kubernetes consultant Phoenix, AI infrastructure consulting Arizona, SRE consulting, AIOps, MLOps, LLMOps, platform engineering, Kubernetes consulting, AWS consulting, observability, MCP, LLM agents, Scottsdale, Tempe, Chandler, Gilbert, Mesa, Neel Thomas Thelly, Codeworks";
 const BOOKING = "https://calendly.com/neeltom92/new-meeting";
@@ -18,7 +18,7 @@ interface Props {
 }
 
 const { title, description = DEFAULT_DESC, isHome = false, schema = [], noindex = false } = Astro.props;
-const pageTitle = title ?? `${SITE_TITLE} | AI, Cloud & DevOps Consulting in Phoenix, AZ`;
+const pageTitle = title ?? `AI, Cloud & DevOps Consultant in Phoenix, AZ | ${SITE_TITLE}`;
 
 const ogImage = new URL("/images/og.png", Astro.site).href;
 const photo = new URL("/images/N90.jpg", Astro.site).href;
@@ -42,7 +42,6 @@ const businessSchema = {
   image: ogImage,
   logo: new URL("/images/apple-touch-icon.png", Astro.site).href,
   description: DEFAULT_DESC,
-  slogan: "AI that ships. Systems that stay up.",
   email: "mailto:neeltom92@gmail.com",
   address: {
     "@type": "PostalAddress",
@@ -67,7 +66,7 @@ const personSchema = {
   name: "Neel Thomas Thelly",
   url: siteUrl,
   image: photo,
-  jobTitle: "Founder, AI Infrastructure & SRE Consultant",
+  jobTitle: "Independent AI, Cloud & DevOps Consultant",
   worksFor: { "@id": `${siteUrl}#business` },
   email: "mailto:neeltom92@gmail.com",
   address: {
@@ -121,7 +120,7 @@ const year = new Date().getFullYear();
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Codeworks: AI, cloud and DevOps consulting in Phoenix, Arizona" />
+    <meta property="og:image:alt" content="Codeworks: independent AI, cloud and DevOps consulting by Neel Thomas Thelly in Phoenix, Arizona" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@NEELTHOMAS11" />
     <meta name="twitter:title" content={pageTitle} />
@@ -173,7 +172,7 @@ const year = new Date().getFullYear();
       <div class="foot__in">
         <div class="foot__brand">
           <span class="foot__big">CODEWORKS</span>
-          <span class="foot__tag">// AI, cloud & DevOps consulting · Mesa, AZ · founded by Neel Thomas Thelly</span>
+          <span class="foot__tag">// independent consulting by Neel Thomas Thelly · Mesa, AZ</span>
         </div>
         <div class="foot__grid">
           <div class="foot__col">
